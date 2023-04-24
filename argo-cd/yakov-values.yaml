@@ -1,0 +1,96 @@
+global:
+  image:
+    repository: quay.io/argoproj/argocd
+    imagePullPolicy: IfNotPresent
+
+# Redis
+redis:
+  enabled: true
+  name: redis
+
+  image:
+    repository: public.ecr.aws/docker/library/redis
+    tag: 7.0.7-alpine
+    imagePullPolicy: IfNotPresent
+
+  containerPort: 6379
+  servicePort: 6379
+  
+  resources: 
+   limits:
+     cpu: 500m
+     memory: 512Mi
+   requests:
+     cpu: 250m
+     memory: 256Mi
+
+dex:
+  enabled: false
+
+server:
+  service:
+    type: NodePort
+    nodePortHttp: 30080
+    nodePortHttps: 30443
+    servicePortHttp: 80
+    servicePortHttps: 443
+    servicePortHttpName: http
+    servicePortHttpsName: https
+    externalIPs:
+      #- 54.75.106.13
+    namedTargetPort: true
+  
+  extraArgs:
+    - --insecure
+    # - --rootpath=/argo-cd
+
+  ingress:
+    # -- Enable an ingress resource for the Argo CD server
+    enabled: true
+    ingressClassName: "nginx"
+    hosts: 
+      - argocd.beder.co.il
+
+    # -- List of ingress paths
+    paths:
+      - /
+    # -- Ingress path type. One of `Exact`, `Prefix` or `ImplementationSpecific`
+    pathType: Prefix
+    # -- Additional ingress paths
+    extraPaths:
+      []
+      # - path: /*
+      #   backend:
+      #     serviceName: ssl-redirect
+      #     servicePort: use-annotation
+      ## for Kubernetes >=1.19 (when "networking.k8s.io/v1" is used)
+      # - path: /*
+      #   pathType: Prefix
+      #   backend:
+      #     service:
+      #       name: ssl-redirect
+      #       port:
+      #         name: use-annotation
+    https: false
+
+  # additionalProjects:
+  #   - name: infra
+  #     namespace: argocd
+  #     finalizers:
+  #       - resources-finalizer.argocd.argoproj.io
+  #     description: Infrastructure
+  #     sourceRepos:
+  #       - '*'
+  #     destinations:
+  #       - name: in-cluster
+  #         namespace: '*'
+  #         server: https://kubernetes.default.svc
+  #     clusterResourceWhitelist: 
+  #       - group: '*'
+  #         kind: '*'
+  #     namespaceResourceWhitelist:
+  #       - group: '*'
+  #         kind: '*'
+  #     syncWindows:
+  #       - kind: deny
+  #         manualSync: true

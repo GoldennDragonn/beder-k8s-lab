@@ -1,0 +1,33 @@
+apiVersion: eksctl.io/v1alpha5
+kind: ClusterConfig
+
+metadata:
+  name: eks-yakovb
+  region: eu-west-1
+
+vpc:
+  # define VPC. I use a default VPC, if you wanna use another one, please set its ID
+  id: "vpc-6714bb01"
+  # define subnets (private and public)
+  subnets:
+    private:
+      eu-west-1a:
+          id: "subnet-0f820c640f07fb0e2"
+      eu-west-1b:
+          id: "subnet-078eb32a17efd2d2d"
+    public:
+      eu-west-1a:
+          id: "subnet-ea0b0db1"
+      eu-west-1b:
+          id: "subnet-4132f727"
+
+# define node groups. here you should choose instanceType (more details about all available instances on AWS can be found at https://aws.amazon.com/ec2/instance-types/) 
+nodeGroups:
+  - name: eks-cluster-ng-1
+    instanceType: t3.medium
+    desiredCapacity: 3
+    volumeSize: 50
+    privateNetworking: false # if only 'Private' subnets are given, this must be enabled
+    ssh:
+      allow: true
+      publicKeyPath: ~/.ssh/id_rsa.pub
