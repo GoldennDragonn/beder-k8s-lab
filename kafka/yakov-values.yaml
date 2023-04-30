@@ -1628,7 +1628,10 @@ provisioning:
   ##   - name: KAFKA_CFG_BACKGROUND_THREADS
   ##     value: "10"
   ##
-  extraEnvVars: []
+  # extraEnvVars: []
+  extraEnvVars:
+  - name: KAFKA_ENABLE_KRAFT
+    value: "false"
   ## @param provisioning.extraEnvVarsCM ConfigMap with extra environment variables
   ##
   extraEnvVarsCM: ""
