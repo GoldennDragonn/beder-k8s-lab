@@ -8,7 +8,7 @@ spec:
   project: default
   source:
     repoURL: 'https://github.com/GoldennDragonn/beder-k8s-hub.git'
-    path: kafdrop
+    path: kafdrop/chart
     targetRevision: HEAD
     helm:
       valueFiles:
