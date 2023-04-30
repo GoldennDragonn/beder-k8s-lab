@@ -1742,7 +1742,7 @@ provisioning:
 kraft:
   ## @param kraft.enabled Switch to enable or disable the Kraft mode for Kafka
   ##
-  enabled: true
+  enabled: false
   ## @param kraft.processRoles Roles of your Kafka nodes. Nodes can have 'broker', 'controller' roles or both of them.
   ##
   processRoles: broker,controller
