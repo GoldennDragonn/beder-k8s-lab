@@ -1734,30 +1734,30 @@ provisioning:
   ##
   waitForKafka: true
 
-## @section Kraft chart parameters
+# ## @section Kraft chart parameters
 
-## Kraft configuration
-## Kafka mode without Zookeeper. Kafka nodes can work as controllers in this mode.
-##
-kraft:
-  ## @param kraft.enabled Switch to enable or disable the Kraft mode for Kafka
-  ##
-  enabled: false
-  ## @param kraft.processRoles Roles of your Kafka nodes. Nodes can have 'broker', 'controller' roles or both of them.
-  ##
-  processRoles: broker,controller
-  ## @param kraft.controllerListenerNames Controller listener names
-  ##
-  controllerListenerNames: CONTROLLER
-  ## @param kraft.clusterId Kafka ClusterID. You must set it if your cluster contains more than one node.
-  ## Generate with `cat /proc/sys/kernel/random/uuid | tr -d '-' | base64 | cut -b 1-22`. Run `export LC_ALL=C` before if you generate it on MacOS.
-  ## Example: k2yipv1sRue7z2_Y3o976A
-  ##
-  clusterId: "kafka_cluster_id_test1"
-  ## @param kraft.controllerQuorumVoters Quorum voters of Kafka Kraft cluster. Use it for nodes with 'broker' role only.
-  ## Example: 1@controller1.example.com:9095,2@controller2.example.com:9095
-  ##
-  controllerQuorumVoters: ""
+# ## Kraft configuration
+# ## Kafka mode without Zookeeper. Kafka nodes can work as controllers in this mode.
+# ##
+# kraft:
+#   ## @param kraft.enabled Switch to enable or disable the Kraft mode for Kafka
+#   ##
+#   enabled: false
+#   ## @param kraft.processRoles Roles of your Kafka nodes. Nodes can have 'broker', 'controller' roles or both of them.
+#   ##
+#   processRoles: broker,controller
+#   ## @param kraft.controllerListenerNames Controller listener names
+#   ##
+#   controllerListenerNames: CONTROLLER
+#   ## @param kraft.clusterId Kafka ClusterID. You must set it if your cluster contains more than one node.
+#   ## Generate with `cat /proc/sys/kernel/random/uuid | tr -d '-' | base64 | cut -b 1-22`. Run `export LC_ALL=C` before if you generate it on MacOS.
+#   ## Example: k2yipv1sRue7z2_Y3o976A
+#   ##
+#   clusterId: "kafka_cluster_id_test1"
+#   ## @param kraft.controllerQuorumVoters Quorum voters of Kafka Kraft cluster. Use it for nodes with 'broker' role only.
+#   ## Example: 1@controller1.example.com:9095,2@controller2.example.com:9095
+#   ##
+#   controllerQuorumVoters: ""
 
 ## @section ZooKeeper chart parameters
 ##
