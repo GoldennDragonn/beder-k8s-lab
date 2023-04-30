@@ -6,7 +6,7 @@ image:
   pullPolicy: Always
 
 kafka:
-  brokerConnect: localhost:9092
+  brokerConnect: kafka-0.kafka-headless:9092,kafka-1.kafka-headless:9092,kafka-2.kafka-headless:9092
   properties: ""
   truststore: ""
   keystore: ""
@@ -44,7 +44,7 @@ ingress:
   enabled: true
   annotations: {}
   apiVersion: ~
-  ingressClassName: nginx
+  ingressClassName: "nginx"
   path: /
   pathType: Prefix
   hosts: 
