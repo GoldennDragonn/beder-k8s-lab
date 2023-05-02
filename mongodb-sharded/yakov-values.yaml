@@ -108,7 +108,7 @@ auth:
   ## @param auth.rootPassword MongoDB(&reg;) root password
   ## ref: https://github.com/bitnami/containers/tree/main/bitnami/mongodb#setting-the-root-user-and-password-on-first-run
   ##
-  rootPassword: ""
+  rootPassword: "Admin123"
   ## @param auth.replicaSetKey Key used for authentication in the replicaset (only when `architecture=replicaset`)
   ##
   replicaSetKey: ""
@@ -124,7 +124,7 @@ auth:
 ## @param shards Number of shards to be created
 ## ref: https://docs.mongodb.com/manual/core/sharded-cluster-shards/
 ##
-shards: 2
+shards: 3
 ## Properties for all of the pods in the cluster (shards, config servers and mongos)
 ##
 common:
@@ -333,7 +333,7 @@ service:
 configsvr:
   ## @param configsvr.replicaCount Number of nodes in the replica set (the first node will be primary)
   ##
-  replicaCount: 1
+  replicaCount: 3
   ## @param configsvr.resources Configure pod resources
   ## ref: https://kubernetes.io/docs/user-guide/compute-resources/
   ##
@@ -647,7 +647,7 @@ configsvr:
 mongos:
   ## @param mongos.replicaCount Number of replicas
   ##
-  replicaCount: 1
+  replicaCount: 3
   ## @param mongos.resources Configure pod resources
   ## ref: https://kubernetes.io/docs/user-guide/compute-resources/
   ##
@@ -971,7 +971,7 @@ shardsvr:
   dataNode:
     ## @param shardsvr.dataNode.replicaCount Number of nodes in each shard replica set (the first node will be primary)
     ##
-    replicaCount: 1
+    replicaCount: 3
     ## @param shardsvr.dataNode.resources Configure pod resources
     ## ref: https://kubernetes.io/docs/user-guide/compute-resources/
     ##
