@@ -8,7 +8,7 @@ kibanaConfig:
     elasticsearch.password: "denisi21"
 
 ingress:
-  enabled: true
+  enabled: false
   className: "nginx"
   pathtype: ImplementationSpecific
   annotations:
