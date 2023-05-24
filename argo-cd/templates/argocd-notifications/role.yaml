@@ -3,6 +3,7 @@ apiVersion: rbac.authorization.k8s.io/v1
 kind: Role
 metadata:
   name: {{ template "argo-cd.notifications.fullname" . }}
+  namespace: {{ .Release.Namespace | quote }}
   labels:
     {{- include "argo-cd.labels" (dict "context" . "component" .Values.notifications.name "name" .Values.notifications.name) | nindent 4 }}
 rules:
@@ -28,7 +29,7 @@ rules:
 - apiGroups:
   - ""
   resourceNames:
-  - {{ include "argo-cd.notifications.configMapName" . }}
+  - argocd-notifications-cm
   resources:
   - configmaps
   verbs:
@@ -36,7 +37,7 @@ rules:
 - apiGroups:
   - ""
   resourceNames:
-  - {{ include "argo-cd.notifications.secretName" . }}
+  - argocd-notifications-secret
   resources:
   - secrets
   verbs:

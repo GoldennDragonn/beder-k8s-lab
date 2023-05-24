@@ -3,9 +3,7 @@ apiVersion: monitoring.coreos.com/v1
 kind: ServiceMonitor
 metadata:
   name: {{ template "argo-cd.server.fullname" . }}
-  {{- if .Values.server.metrics.serviceMonitor.namespace }}
-  namespace: {{ .Values.server.metrics.serviceMonitor.namespace }}
-  {{- end }}
+  namespace: {{ default .Release.Namespace .Values.server.metrics.serviceMonitor.namespace | quote }}
   labels:
     {{- include "argo-cd.labels" (dict "context" . "component" .Values.server.name "name" .Values.server.name) | nindent 4 }}
     {{- with .Values.server.metrics.serviceMonitor.selector }}
@@ -13,6 +11,10 @@ metadata:
     {{- end }}
     {{- with .Values.server.metrics.serviceMonitor.additionalLabels }}
       {{- toYaml . | nindent 4 }}
+    {{- end }}
+  annotations:
+    {{- range $key, $value := .Values.server.metrics.serviceMonitor.annotations }}
+    {{ $key }}: {{ $value | quote }}
     {{- end }}
 spec:
   endpoints:
