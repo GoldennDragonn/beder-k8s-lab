@@ -15,8 +15,10 @@ spec:
         - yakov-values.yaml
   destination:
     server: 'https://kubernetes.default.svc'
-    namespace: default
+    namespace: kafka
   syncPolicy:
     automated:
       prune: true
       selfHeal: true
+    syncOptions:
+    - CreateNamespace=true
