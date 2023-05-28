@@ -8,8 +8,8 @@ image:
 
 
 kafka:
-  # brokerConnect: kafka-0.kafka-headless:9092,kafka-1.kafka-headless:9092,kafka-2.kafka-headless:9092
-  brokerConnect: kafka-0.kafka-headless.kafka.svc.cluster.local,kafka-1.kafka-headless.kafka.svc.cluster.local,kafka-2.kafka-headless.kafka.svc.cluster.local
+  brokerConnect: kafka-0.kafka-headless:9092,kafka-1.kafka-headless:9092,kafka-2.kafka-headless:9092
+  # brokerConnect: kafka-0.kafka-headless.kafka.svc.cluster.local,kafka-1.kafka-headless.kafka.svc.cluster.local,kafka-2.kafka-headless.kafka.svc.cluster.local
   properties: ""
   truststore: ""
   keystore: ""
