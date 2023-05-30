@@ -54,17 +54,17 @@ feature:
   flags: ""
 
 ingress:
-  enabled: false
-  ingressClassName: ""
+  enabled: true
+  ingressClassName: "nginx"
   annotations: {}
     # kubernetes.io/ingress.class: nginx
     # Only use below if tls.force=true
     # nginx.ingress.kubernetes.io/backend-protocol: HTTPS
   # Note: Hosts and paths are of type array
   hosts:
-    - host:
-      paths: []
-      # - path: "/"
+    - host: portainer.beder.co.il
+      paths: 
+      - path: "/"
   tls: []
 
 resources: {}
