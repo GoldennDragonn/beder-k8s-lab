@@ -333,7 +333,7 @@ service:
 configsvr:
   ## @param configsvr.replicaCount Number of nodes in the replica set (the first node will be primary)
   ##
-  replicaCount: 3
+  replicaCount: 2
   ## @param configsvr.resources Configure pod resources
   ## ref: https://kubernetes.io/docs/user-guide/compute-resources/
   ##
@@ -647,7 +647,7 @@ configsvr:
 mongos:
   ## @param mongos.replicaCount Number of replicas
   ##
-  replicaCount: 3
+  replicaCount: 1
   ## @param mongos.resources Configure pod resources
   ## ref: https://kubernetes.io/docs/user-guide/compute-resources/
   ##
