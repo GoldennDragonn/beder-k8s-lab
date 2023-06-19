@@ -106,7 +106,7 @@ extraEnvVarsSecret:
 # MongoDB host name or IP address
 #mongodbServer: mongodb
 
-mongodbServer: mongodb-sharded.svc.cluster.local
+mongodbServer: mongodb-sharded
 # MongoDB port
 mongodbPort: 27017
 
@@ -141,7 +141,7 @@ siteSessionSecret: ""
 basicAuthUsername: "admin"
 
 # Mongo Express Web login password
-basicAuthPassword: "admin"
+basicAuthPassword: "Admin123"
 
 # Name of existing Secret to use
 existingSecret: ""
