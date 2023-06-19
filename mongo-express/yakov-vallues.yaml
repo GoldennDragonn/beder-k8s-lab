@@ -106,7 +106,7 @@ extraEnvVarsSecret:
 # MongoDB host name or IP address
 #mongodbServer: mongodb
 
-mongodbServer: mongodb-sharded
+mongodbServer: mongodb-sharded-shard0-data-0.mongodb-sharded-headless.default
 # MongoDB port
 mongodbPort: 27017
 
