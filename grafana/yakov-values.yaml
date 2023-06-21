@@ -660,12 +660,12 @@ dashboardProviders:
 ##
 dashboards: 
   default:
-    # nodes:
-    #   file: dashboards/node.json
-    #   datasource: Prometheus
-    mongodb:
-      file: dashboards/mongodb.json
+    nodes:
+      file: dashboards/node.json
       datasource: Prometheus
+    # mongodb:
+    #   file: dashboards/mongodb.json
+    #   datasource: Prometheus
   #   local-dashboard:
   #     url: https://example.com/repository/test.json
   #     token: ''
