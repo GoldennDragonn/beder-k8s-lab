@@ -534,14 +534,14 @@ plugins: []
 ## ref: http://docs.grafana.org/administration/provisioning/#datasources
 ##
 datasources: {}
-#  datasources.yaml:
-#    apiVersion: 1
-#    datasources:
-#    - name: Prometheus
-#      type: prometheus
-#      url: http://prometheus-server
-#      access: proxy
-#      isDefault: true
+ datasources.yaml:
+   apiVersion: 1
+   datasources:
+   - name: Prometheus
+     type: prometheus
+     url: http://prometheus-server
+     access: proxy
+     isDefault: true
 #    - name: CloudWatch
 #      type: cloudwatch
 #      access: proxy
@@ -660,9 +660,9 @@ dashboardProviders:
 ##
 dashboards: 
   default:
-    nodes:
-      file: dashboards/node.json
-      datasource: Prometheus
+    # nodes:
+    #   file: dashboards/node.json
+    #   datasource: Prometheus
     mongodb:
       file: dashboards/mongodb.json
       datasource: Prometheus
