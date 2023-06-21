@@ -660,7 +660,7 @@ dashboardProviders: {}
 ##
 dashboards: 
   default:
-    node-dashboard:
+    nodes:
       file: dashboards/node.json
       datasource: Prometheus
     mongodb:
