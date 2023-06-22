@@ -1,27 +1,27 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: {{ .Values.appName }}
-  namespace: {{ .Values.namespace }}
+  name: {{ .appName }}
+  namespace: {{ .appNamespace }}
   finalizers:
   - resources-finalizer.argocd.argoproj.io
 
 spec:
-  project: {{ .Values.project }}
+  project: {{ .projectName }}
   source:
-    repoURL: '{{ .Values.repoURL }}'
-    path: {{ .Values.path }}
-    targetRevision: {{ .Values.targetRevision }}
+    repoURL: '{{ .repoURL }}'
+    path: {{ .path }}
+    targetRevision: {{ .targetRevision }}
   destination:
-    server: '{{ .Values.server }}'
-    namespace: {{ .Values.destinationNamespace }}
+    server: '{{ .serverURL }}'
+    namespace: {{ .destinationNamespace }}
   syncPolicy:
     automated:
-      prune: {{ .Values.syncPrune }}
-      selfHeal: {{ .Values.syncSelfHeal }}
+      prune: {{ .prune }}
+      selfHeal: {{ .selfHeal }}
     retry:
-      limit: {{ .Values.retryLimit }}
+      limit: {{ .retryLimit }}
       backoff:
-        duration: {{ .Values.retryDuration }}
-        maxDuration: {{ .Values.retryMaxDuration }}
-        factor: {{ .Values.retryFactor }}
+        duration: {{ .retryBackoffDuration }}
+        maxDuration: {{ .retryBackoffMaxDuration }}
+        factor: {{ .retryBackoffFactor }}
