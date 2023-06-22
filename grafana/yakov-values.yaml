@@ -147,6 +147,7 @@ downloadDashboardsImage:
   tag: 7.85.0
   sha: ""
   pullPolicy: IfNotPresent
+  
 
 downloadDashboards:
   env: {}
@@ -539,7 +540,7 @@ datasources:
    datasources:
    - name: Prometheus
      type: prometheus
-     url: http://prometheus-server
+     url: http://prometheus-server:80
      access: proxy
      isDefault: true
 #    - name: CloudWatch
@@ -658,14 +659,15 @@ dashboardProviders:
 ##
 ## dashboards per provider, use provider name as key.
 ##
-dashboards: 
-  default:
-    nodes:
-      file: dashboards/node.json
-      datasource: Prometheus
-    # mongodb:
-    #   file: dashboards/mongodb.json
-    #   datasource: Prometheus
+# dashboards: 
+#   default:
+#     node:
+#       file: dashboards/node-dashboard_rev2.json
+#       datasource: Prometheus
+#     ingress-nginx:
+#       file: dashboards/nginx-ingress-controller_rev1.json
+#       datasource: Prometheus
+
   #   local-dashboard:
   #     url: https://example.com/repository/test.json
   #     token: ''
