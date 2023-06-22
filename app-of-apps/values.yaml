@@ -32,3 +32,6 @@ grafana:
 kafdrop:
   enabled: false
   syncWave: "4"
+mongoExpress:
+  enabled: false
+  syncWave: "2"
