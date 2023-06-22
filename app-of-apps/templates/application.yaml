@@ -1,0 +1,25 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: {{ .Release.Name }}
+  namespace: {{ .Release.Namespace }}
+
+spec:
+  project: {{ .Values.project }}
+  source:
+    repoURL: '{{ .Values.repoURL }}'
+    path: {{ .Values.path }}
+    targetRevision: {{ .Values.targetRevision }}
+  destination:
+    server: '{{ .Values.server }}'
+    namespace: '{{ .Values.destinationNamespace }}'
+  syncPolicy:
+    automated:
+      prune: {{ .Values.syncPolicy.automated.prune }}
+      selfHeal: {{ .Values.syncPolicy.automated.selfHeal }}
+    retry:
+      limit: {{ .Values.syncPolicy.retry.limit }}
+      backoff:
+        duration: {{ .Values.syncPolicy.retry.backoff.duration }}
+        maxDuration: {{ .Values.syncPolicy.retry.backoff.maxDuration }}
+        factor: {{ .Values.syncPolicy.retry.backoff.factor }}
