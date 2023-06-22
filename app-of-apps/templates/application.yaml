@@ -23,3 +23,5 @@ spec:
         duration: {{ .Values.syncPolicy.retry.backoff.duration }}
         maxDuration: {{ .Values.syncPolicy.retry.backoff.maxDuration }}
         factor: {{ .Values.syncPolicy.retry.backoff.factor }}
+  info:
+    dependencies: {{ .Values.dependencies }}
