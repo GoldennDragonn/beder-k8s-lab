@@ -23,29 +23,4 @@ spec:
         duration: {{ .Values.syncPolicy.retry.backoff.duration }}
         maxDuration: {{ .Values.syncPolicy.retry.backoff.maxDuration }}
         factor: {{ .Values.syncPolicy.retry.backoff.factor }}
-  info:
-    - name: app-of-apps-info
-      value: "App of Apps"
-      appOfApps: true
-      dependencies:
-        - name: grafana
-          info:
-            name: grafana-info
-            value: "Grafana App"
-            appOfApps: false
-          source:
-            repoURL: '{{ .Values.repoURL }}'
-            path: app-of-apps/applications/grafana
-            targetRevision: {{ .Values.targetRevision }}
-          destination:
-            namespace: '{{ .Values.destinationNamespace }}'
-          syncPolicy:
-            automated:
-              prune: {{ .Values.syncPolicy.automated.prune }}
-              selfHeal: {{ .Values.syncPolicy.automated.selfHeal }}
-            retry:
-              limit: {{ .Values.syncPolicy.retry.limit }}
-              backoff:
-                duration: {{ .Values.syncPolicy.retry.backoff.duration }}
-                maxDuration: {{ .Values.syncPolicy.retry.backoff.maxDuration }}
-                factor: {{ .Values.syncPolicy.retry.backoff.factor }}
+
