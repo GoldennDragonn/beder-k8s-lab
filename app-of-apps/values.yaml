@@ -30,8 +30,11 @@ grafana:
   enabled: true
   syncWave: "3"
 kafdrop:
-  enabled: true
+  enabled: false
   syncWave: "2"
 mongoExpress:
-  enabled: true
+  enabled: false
   syncWave: "4"
+mongodbSharded:
+  enabled: true
+  syncWave: "1"
