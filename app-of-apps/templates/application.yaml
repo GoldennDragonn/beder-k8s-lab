@@ -24,10 +24,14 @@ spec:
         maxDuration: {{ .Values.syncPolicy.retry.backoff.maxDuration }}
         factor: {{ .Values.syncPolicy.retry.backoff.factor }}
   info:
-    - appOfApps: true
+    - name: app-of-apps-info
+      value: "App of Apps"
+      appOfApps: true
       dependencies:
         - name: grafana
           info:
+            name: grafana-info
+            value: "Grafana App"
             appOfApps: false
           source:
             repoURL: '{{ .Values.repoURL }}'
