@@ -33,9 +33,9 @@ spec:
 # mongo-express:
 #   enabled: false
 #   syncWave: 2
-# grafana:
-#   enabled: true
-#   syncWave: 3
+grafana:
+  enabled: true
+  syncWave: 3
 # kafdrop:
 #   enabled: true
 #   syncWave: 4
