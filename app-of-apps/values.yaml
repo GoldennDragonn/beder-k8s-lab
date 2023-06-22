@@ -10,7 +10,7 @@ spec:
   project: default
   source:
     repoURL: 'https://github.com/GoldennDragonn/beder-k8s-hub.git'
-    path: argo-cd/app-of-apps
+    path: app-of-apps/applications
     targetRevision: HEAD
   destination:
     server: 'https://kubernetes.default.svc'
