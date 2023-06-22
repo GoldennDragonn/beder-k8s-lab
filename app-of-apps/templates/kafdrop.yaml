@@ -6,8 +6,7 @@ metadata:
   finalizers:
     - resources-finalizer.argocd.argoproj.io
   annotations:
-    argocd.argoproj.io/sync-wave: "{{ .Values.kafdrop.syncWave }}"
-spec:
+    argocd.argoproj.io/sync-wave: 4
   project: default
   source:
     repoURL: 'https://github.com/GoldennDragonn/beder-k8s-hub.git'
