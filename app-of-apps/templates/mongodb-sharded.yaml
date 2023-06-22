@@ -1,22 +1,20 @@
+# templates/mongodb-sharded.yaml
+{{- if .Values.mongodbSharded.enabled }}
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: mongodb-sharded
   namespace: default
   finalizers:
-  - resources-finalizer.argocd.argoproj.io
+    - resources-finalizer.argocd.argoproj.io
   annotations:
-    argocd.argoproj.io/sync-wave: "1"
-
+    argocd.argoproj.io/sync-wave: "{{ .Values.mongodbSharded.syncWave }}"
 spec:
   project: default
   source:
     repoURL: 'https://github.com/GoldennDragonn/beder-k8s-hub.git'
     path: mongodb-sharded
     targetRevision: HEAD
-    helm:
-      valueFiles:
-        - yakov-values.yaml
   destination:
     server: 'https://kubernetes.default.svc'
     namespace: default
@@ -24,3 +22,4 @@ spec:
     automated:
       prune: true
       selfHeal: true
+{{- end }}

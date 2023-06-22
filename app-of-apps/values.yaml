@@ -25,6 +25,16 @@ spec:
         duration: 5s
         maxDuration: 3m0s
         factor: 2
-grafana:
+mongodb-sharded:
+  enabled: true
+  syncWave: 1
+mongo-express:
   enabled: false
-  syncWave: 4  
+  syncWave: 2
+grafana:
+  enabled: true
+  syncWave: 3
+kafdrop:
+  enabled: true
+  syncWave: 4
+  
