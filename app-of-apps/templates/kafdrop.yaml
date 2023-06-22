@@ -1,4 +1,3 @@
-# templates/kafdrop.yaml
 {{- if .Values.kafdrop.enabled }}
 apiVersion: argoproj.io/v1alpha1
 kind: Application

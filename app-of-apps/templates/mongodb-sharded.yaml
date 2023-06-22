@@ -1,4 +1,3 @@
-# templates/mongodb-sharded.yaml
 {{- if .Values.mongodbSharded.enabled }}
 apiVersion: argoproj.io/v1alpha1
 kind: Application
