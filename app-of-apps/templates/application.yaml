@@ -1,26 +1,26 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: {{ .Values.metadata.name }}
-  namespace: {{ .Values.metadata.namespace }}
+  name: {{ .Values.appName }}
+  namespace: {{ .Values.namespace }}
 
 spec:
   project: {{ .Values.spec.project }}
   source:
-    repoURL: '{{ .Values.spec.source.repoURL }}'
+    repoURL: '{{ .Values.source.repoURL }}'
     path: {{ .Values.spec.source.path }}
     targetRevision: {{ .Values.spec.source.targetRevision }}
   destination:
-    server: '{{ .Values.spec.destination.server }}'
-    namespace: '{{ .Values.spec.destination.namespace }}'
+    server: '{{ .Values.destination.server }}'
+    namespace: {{ .Values.namespace }}
   syncPolicy:
     automated:
-      prune: {{ .Values.spec.syncPolicy.automated.prune }}
-      selfHeal: {{ .Values.spec.syncPolicy.automated.selfHeal }}
+      prune: {{ .Values.syncPolicy.automated.prune }}
+      selfHeal: {{ .Values.syncPolicy.automated.selfHeal }}
     retry:
-      limit: {{ .Values.spec.syncPolicy.retry.limit }}
+      limit: {{ .Values.syncPolicy.retry.limit }}
       backoff:
-        duration: {{ .Values.spec.syncPolicy.retry.backoff.duration }}
-        maxDuration: {{ .Values.spec.syncPolicy.retry.backoff.maxDuration }}
-        factor: {{ .Values.spec.syncPolicy.retry.backoff.factor }}
+        duration: {{ .Values.syncPolicy.retry.backoff.duration }}
+        maxDuration: {{ .Values.syncPolicy.retry.backoff.maxDuration }}
+        factor: {{ .Values.syncPolicy.retry.backoff.factor }}
 
