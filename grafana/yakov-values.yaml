@@ -659,11 +659,11 @@ dashboardProviders:
 ##
 ## dashboards per provider, use provider name as key.
 ##
-dashboards: 
-  default:
-    ingress-nginx-monitoring:
-      file: dashboards/nginx-ingress-controller_rev1.json
-      datasource: Prometheus
+# dashboards: 
+#   default:
+#     ingress-nginx-monitoring:
+#       file: dashboards/nginx-ingress-controller_rev1.json
+#       datasource: Prometheus
 
   #   local-dashboard:
   #     url: https://example.com/repository/test.json
