@@ -30,13 +30,13 @@ spec:
 mongodb-sharded:
   enabled: true
   syncWave: 1
-mongo-express:
-  enabled: false
-  syncWave: 2
-grafana:
-  enabled: true
-  syncWave: 3
-kafdrop:
-  enabled: true
-  syncWave: 4
+# mongo-express:
+#   enabled: false
+#   syncWave: 2
+# grafana:
+#   enabled: true
+#   syncWave: 3
+# kafdrop:
+#   enabled: true
+#   syncWave: 4
   
