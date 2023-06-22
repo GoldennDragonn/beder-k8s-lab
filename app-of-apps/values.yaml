@@ -28,5 +28,7 @@ spec:
 
 grafana:
   enabled: true
-  syncWave: 3
-  
+  syncWave: "3"
+kafdrop:
+  enabled: false
+  syncWave: "4"
