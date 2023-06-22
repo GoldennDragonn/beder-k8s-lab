@@ -16,3 +16,4 @@ syncPolicy:
       factor: 2
 dependencies:
   - grafana
+  
