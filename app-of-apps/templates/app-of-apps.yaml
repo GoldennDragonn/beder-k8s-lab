@@ -1,9 +1,9 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: {{ template "fullname" . }}
-  labels:
-    chart: "{{ .Chart.Name }}-{{ .Chart.Version | replace "+" "_" }}"
+  name: app-of-apps
+  namespace: default
+    
 spec:
   project: default
   source:
@@ -20,6 +20,6 @@ spec:
     retry:
       limit: 5
       backoff:
-        duration: 5s
+        duration: 10s
         maxDuration: 3m0s
-        factor: 2
+        factor: 2  
