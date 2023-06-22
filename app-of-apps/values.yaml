@@ -27,9 +27,9 @@ spec:
         factor: 2
 
 
-mongodb-sharded:
-  enabled: true
-  syncWave: 1
+# mongodb-sharded:
+#   enabled: true
+#   syncWave: 1
 # mongo-express:
 #   enabled: false
 #   syncWave: 2
