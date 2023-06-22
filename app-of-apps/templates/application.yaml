@@ -24,4 +24,7 @@ spec:
         maxDuration: {{ .Values.syncPolicy.retry.backoff.maxDuration }}
         factor: {{ .Values.syncPolicy.retry.backoff.factor }}
   info:
-    dependencies: {{ .Values.dependencies }}
+    appOfApps: true
+    dependencies: {{ toYaml .Values.dependencies | nindent 6 }}
+  sourcePath:
+    path: app-of-apps/applications
