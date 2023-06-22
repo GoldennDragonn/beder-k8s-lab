@@ -1,9 +1,6 @@
-metadata:
-  name: app-of-apps
-  namespace: default
 project: default
 repoURL: 'https://github.com/GoldennDragonn/beder-k8s-hub.git'
-path: app-of-apps/applications
+path: app-of-apps
 targetRevision: HEAD
 server: 'https://kubernetes.default.svc'
 destinationNamespace: default
@@ -17,3 +14,6 @@ syncPolicy:
       duration: 5s
       maxDuration: 3m0s
       factor: 2
+dependencies:
+  - kafdrop
+  - grafana
