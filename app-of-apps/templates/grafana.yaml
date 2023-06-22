@@ -1,22 +1,19 @@
+{{- if .Values.grafana.enabled }}
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: grafana
   namespace: default
   finalizers:
-  - resources-finalizer.argocd.argoproj.io
+    - resources-finalizer.argocd.argoproj.io
   annotations:
-    argocd.argoproj.io/sync-wave: "4"
-
+    argocd.argoproj.io/sync-wave: "{{ .Values.grafana.syncWave }}"
 spec:
   project: default
   source:
     repoURL: 'https://github.com/GoldennDragonn/beder-k8s-hub.git'
     path: grafana
     targetRevision: HEAD
-    helm:
-      valueFiles:
-        - yakov-values.yaml
   destination:
     server: 'https://kubernetes.default.svc'
     namespace: default
@@ -24,3 +21,4 @@ spec:
     automated:
       prune: true
       selfHeal: true
+{{- end }}

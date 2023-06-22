@@ -24,4 +24,7 @@ spec:
       backoff:
         duration: 5s
         maxDuration: 3m0s
-        factor: 2  
+        factor: 2
+grafana:
+  enabled: true
+  syncWave: 4  
