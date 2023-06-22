@@ -15,5 +15,4 @@ syncPolicy:
       maxDuration: 3m0s
       factor: 2
 dependencies:
-  - kafdrop
   - grafana
