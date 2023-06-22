@@ -1,18 +1,18 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: grafana
+  name: mongodb-sharded
   namespace: default
   finalizers:
   - resources-finalizer.argocd.argoproj.io
   annotations:
-    argocd.argoproj.io/sync-wave: "4"
+    argocd.argoproj.io/sync-wave: "1"
 
 spec:
   project: default
   source:
     repoURL: 'https://github.com/GoldennDragonn/beder-k8s-hub.git'
-    path: grafana
+    path: mongodb-sharded
     targetRevision: HEAD
     helm:
       valueFiles:
