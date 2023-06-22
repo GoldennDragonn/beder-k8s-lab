@@ -10,7 +10,7 @@ spec:
   project: default
   source:
     repoURL: 'https://github.com/GoldennDragonn/beder-k8s-hub.git'
-    path: app-of-apps/applications
+    path: app-of-apps
     targetRevision: HEAD
   destination:
     server: 'https://kubernetes.default.svc'
