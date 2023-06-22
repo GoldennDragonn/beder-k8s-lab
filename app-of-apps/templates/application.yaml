@@ -25,6 +25,23 @@ spec:
         factor: {{ .Values.syncPolicy.retry.backoff.factor }}
   info:
     appOfApps: true
-    dependencies: {{ toYaml .Values.dependencies | nindent 6 }}
-  sourcePath:
-    path: app-of-apps/applications
+    dependencies: 
+    {{- range .Values.dependencies }}
+    - name: {{ . }}
+      source:
+        repoURL: '{{ .Values.repoURL }}'
+        path: app-of-apps/applications/{{ . }}
+        targetRevision: {{ .Values.targetRevision }}
+      destination:
+        namespace: '{{ .Values.destinationNamespace }}'
+      syncPolicy:
+        automated:
+          prune: {{ .Values.syncPolicy.automated.prune }}
+          selfHeal: {{ .Values.syncPolicy.automated.selfHeal }}
+        retry:
+          limit: {{ .Values.syncPolicy.retry.limit }}
+          backoff:
+            duration: {{ .Values.syncPolicy.retry.backoff.duration }}
+            maxDuration: {{ .Values.syncPolicy.retry.backoff.maxDuration }}
+            factor: {{ .Values.syncPolicy.retry.backoff.factor }}
+    {{- end }}
