@@ -26,5 +26,5 @@ spec:
         maxDuration: 3m0s
         factor: 2
 grafana:
-  enabled: true
+  enabled: false
   syncWave: 4  
