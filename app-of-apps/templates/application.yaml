@@ -7,12 +7,12 @@ metadata:
 spec:
   project: {{ .Values.spec.project }}
   source:
-    repoURL: '{{ .Values.source.repoURL }}'
-    path: {{ .Values.spec.source.path }}
-    targetRevision: {{ .Values.spec.source.targetRevision }}
+    repoURL: '{{ .Values.repoURL }}'
+    path: {{ .Values.source.path }}
+    targetRevision: {{ .Values.source.targetRevision }}
   destination:
     server: '{{ .Values.destination.server }}'
-    namespace: {{ .Values.namespace }}
+    namespace: '{{ .Values.namespace }}'
   syncPolicy:
     automated:
       prune: {{ .Values.syncPolicy.automated.prune }}
