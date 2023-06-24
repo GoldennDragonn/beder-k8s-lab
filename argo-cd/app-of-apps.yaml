@@ -9,7 +9,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: 'https://github.com/GoldennDragonn/beder-k8s-hub.git'
+    repoURL: 'https://gitlab.com/yakovbwork/beder-k8s.git'
     path: argo-cd/app-of-apps
     targetRevision: HEAD
     # helm:
