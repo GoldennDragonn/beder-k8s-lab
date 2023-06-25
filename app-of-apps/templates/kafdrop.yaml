@@ -3,7 +3,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: kafdrop
-  namespace: default
+  namespace: {{ .Values.appNamespace}}
   finalizers:
   - resources-finalizer.argocd.argoproj.io
   annotations:
