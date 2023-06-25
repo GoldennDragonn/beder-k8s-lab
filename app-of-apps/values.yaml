@@ -30,7 +30,7 @@ grafana:
   enabled: false
   syncWave: "3"
 kafdrop:
-  enabled: true
+  enabled: false
   syncWave: "2"
   appNamespace: default
   namespace: default
