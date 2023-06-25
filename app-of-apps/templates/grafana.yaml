@@ -14,7 +14,7 @@ spec:
   source:
     repoURL: 'git@gitlab.com:yakovbwork/beder-k8s.git'
     path: grafana
-    targetRevision: HEAD
+    targetRevision: main
   destination:
     server: 'https://kubernetes.default.svc'
     namespace: default

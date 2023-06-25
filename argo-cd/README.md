@@ -210,7 +210,7 @@ server:
       project: guestbook
       source:
         repoURL: https://github.com/argoproj/argocd-example-apps.git
-        targetRevision: HEAD
+        targetRevision: main
         path: guestbook
         directory:
           recurse: true

@@ -14,7 +14,7 @@ spec:
   source:
     repoURL: 'git@gitlab.com:yakovbwork/beder-k8s.git'
     path: kafdrop/chart
-    targetRevision: HEAD
+    targetRevision: main
     helm:
       valueFiles:
         - yakov-values.yaml

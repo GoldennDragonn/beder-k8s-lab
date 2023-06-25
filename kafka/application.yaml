@@ -9,7 +9,7 @@ spec:
   source:
     repoURL: 'https://gitlab.com/yakovbwork/beder-k8s.git'
     path: kafka
-    targetRevision: HEAD
+    targetRevision: main
     helm:
       valueFiles:
         - yakov-values.yaml

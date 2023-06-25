@@ -119,7 +119,7 @@ server:
           - resources-finalizer.argocd.argoproj.io
         source:
           repoURL: git@gitlab.com:yakovbwork/beder-k8s.git
-          targetRevision: HEAD
+          targetRevision: main
           path: app-of-apps
           helm:
             valueFiles:
