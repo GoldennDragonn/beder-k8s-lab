@@ -32,7 +32,9 @@ grafana:
 kafdrop:
   enabled: true
   syncWave: "2"
+  appNamespace: default
   namespace: default
+
 mongoExpress:
   enabled: true
   syncWave: "4"

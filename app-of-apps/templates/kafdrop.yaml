@@ -20,7 +20,7 @@ spec:
         - yakov-values.yaml
   destination:
     server: 'https://kubernetes.default.svc'
-    namespace: kafka
+    namespace: {{ .Values.kafdrop.destination.namespace}}
   syncPolicy:
     automated:
       prune: true
