@@ -12,7 +12,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: 'https://github.com/GoldennDragonn/beder-k8s-hub.git'
+    repoURL: 'git@gitlab.com:yakovbwork/beder-k8s.git'
     path: mongodb-sharded
     targetRevision: HEAD
     helm:

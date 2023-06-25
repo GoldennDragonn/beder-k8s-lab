@@ -12,7 +12,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: 'https://gitlab.com/yakovbwork/beder-k8s.git'
+    repoURL: 'git@gitlab.com:yakovbwork/beder-k8s.git'
     path: nfs-subdir-external-provisioner
     targetRevision: HEAD
     helm:

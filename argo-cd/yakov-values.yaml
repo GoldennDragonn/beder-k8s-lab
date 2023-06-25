@@ -118,7 +118,7 @@ server:
         finalizers:
           - resources-finalizer.argocd.argoproj.io
         source:
-          repoURL: git@github.com:GoldennDragonn/beder-k8s-hub.git
+          repoURL: git@gitlab.com:yakovbwork/beder-k8s.git
           targetRevision: HEAD
           path: app-of-apps
           helm:
