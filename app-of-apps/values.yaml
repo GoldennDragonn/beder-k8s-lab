@@ -33,10 +33,10 @@ kafdrop:
   enabled: true
   syncWave: "2"
 mongoExpress:
-  enabled: false
+  enabled: true
   syncWave: "4"
 mongodbSharded:
-  enabled: false
+  enabled: true
   syncWave: "1"
 nfs:
   enabled: true
