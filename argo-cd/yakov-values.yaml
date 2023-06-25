@@ -90,6 +90,8 @@ server:
       #         name: use-annotation
     https: false
 
+  #Deprecated. Use argo-cd/apps chart.   
+
   # additionalProjects:
   #   - name: infra
   #     namespace: argocd
@@ -111,22 +113,22 @@ server:
   #     syncWindows:
   #       - kind: deny
   #         manualSync: true
-  additionalApplications:
-      - name: app-of-apps
-        namespace: default
-        project: default
-        finalizers:
-          - resources-finalizer.argocd.argoproj.io
-        source:
-          repoURL: git@gitlab.com:yakovbwork/beder-k8s.git
-          targetRevision: main
-          path: app-of-apps
-          helm:
-            valueFiles:
-              - values.yaml
-        destination:
-          server: https://kubernetes.default.svc
-          namespace: default
+  # additionalApplications:
+  #     - name: app-of-apps
+  #       namespace: default
+  #       project: default
+  #       finalizers:
+  #         - resources-finalizer.argocd.argoproj.io
+  #       source:
+  #         repoURL: git@gitlab.com:yakovbwork/beder-k8s.git
+  #         targetRevision: main
+  #         path: app-of-apps
+  #         helm:
+  #           valueFiles:
+  #             - values.yaml
+  #       destination:
+  #         server: https://kubernetes.default.svc
+  #         namespace: default
   
 configs:
   credentialTemplates:
