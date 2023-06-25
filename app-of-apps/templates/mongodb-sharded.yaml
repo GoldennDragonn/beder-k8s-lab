@@ -21,8 +21,10 @@ spec:
   destination:
     server: 'https://kubernetes.default.svc'
     namespace: default
+  {{- if .Values.mongodbSharded.syncPolicy.enable }}
   syncPolicy:
     automated:
-      prune: true
-      selfHeal: true
+      prune: {{ .Values.mongodbSharded.syncPolicy.automated.prune }}
+      selfHeal: {{ .Values.mongodbSharded.syncPolicy.automated.selfHeal }}
+  {{- end }}
 {{- end }}

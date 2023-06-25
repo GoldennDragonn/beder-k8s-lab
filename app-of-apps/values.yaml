@@ -38,6 +38,8 @@ mongoExpress:
 mongodbSharded:
   enabled: true
   syncWave: "1"
+  syncPolicy:
+    enabled: false
 nfs:
   enabled: true
   syncWave: "0"
