@@ -12,7 +12,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: 'https://gitlab.com/yakovbwork/beder-k8s.git'
+    repoURL: 'https://github.com/GoldennDragonn/beder-k8s-hub.git'
     path: kafdrop/chart
     targetRevision: HEAD
     helm:

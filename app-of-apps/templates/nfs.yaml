@@ -1,20 +1,23 @@
-{{- if .Values.grafana.enabled }}
+{{- if .Values.nfs.enabled }}
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: grafana
+  name: nfs
   namespace: default
   finalizers:
-    - resources-finalizer.argocd.argoproj.io
+  - resources-finalizer.argocd.argoproj.io
   annotations:
-    argocd.argoproj.io/sync-wave: "{{ .Values.grafana.syncWave }}"
-    
+    argocd.argoproj.io/sync-wave: "{{ .Values.nfs.syncWave }}"
+
 spec:
   project: default
   source:
-    repoURL: 'https://github.com/GoldennDragonn/beder-k8s-hub.git'
-    path: grafana
+    repoURL: 'https://gitlab.com/yakovbwork/beder-k8s.git'
+    path: nfs-subdir-external-provisioner
     targetRevision: HEAD
+    helm:
+      valueFiles:
+        - yakov-values.yaml
   destination:
     server: 'https://kubernetes.default.svc'
     namespace: default

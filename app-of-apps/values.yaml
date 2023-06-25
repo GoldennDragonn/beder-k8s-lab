@@ -9,7 +9,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: 'https://gitlab.com/yakovbwork/beder-k8s.git'
+    repoURL: 'https://github.com/GoldennDragonn/beder-k8s-hub.git'
     path: app-of-apps
     targetRevision: HEAD
   destination:
@@ -27,14 +27,17 @@ spec:
         factor: 2
 
 grafana:
-  enabled: true
+  enabled: false
   syncWave: "3"
 kafdrop:
   enabled: true
   syncWave: "2"
 mongoExpress:
-  enabled: true
+  enabled: false
   syncWave: "4"
 mongodbSharded:
   enabled: true
   syncWave: "1"
+nfs:
+  enabled: true
+  syncWave: "0"

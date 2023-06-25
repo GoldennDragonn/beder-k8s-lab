@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: argo-cm
+data:
+  patch-argocd-cm.yaml: |-
+    {{ .Files.Get "argocd/patch-argocd-cm.yaml" | indent 2 }}

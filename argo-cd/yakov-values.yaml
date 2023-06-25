@@ -3,6 +3,22 @@ global:
     repository: quay.io/argoproj/argocd
     imagePullPolicy: IfNotPresent
 
+# configs:
+#   cm:
+#     resource.customizations.health.argoproj.io_Application: |
+#       hs = {}
+#       hs.status = "Progressing"
+#       hs.message = ""
+#       if obj.status ~= nil then
+#         if obj.status.health ~= nil then
+#           hs.status = obj.status.health.status
+#           if obj.status.health.message ~= nil then
+#             hs.message = obj.status.health.message
+#           end
+#         end
+#       end
+#       return hs
+
 # Redis
 redis:
   enabled: true
@@ -39,10 +55,11 @@ server:
     externalIPs:
       #- 54.75.106.13
     namedTargetPort: true
+
   
-  extraArgs:
-    - --insecure
-    # - --rootpath=/argo-cd
+  # extraArgs:
+  #   - --insecure
+  #   # - --rootpath=/argo-cd
 
   ingress:
     # -- Enable an ingress resource for the Argo CD server
@@ -94,3 +111,60 @@ server:
   #     syncWindows:
   #       - kind: deny
   #         manualSync: true
+  additionalApplications:
+      - name: app-of-apps
+        namespace: default
+        project: default
+        finalizers:
+          - resources-finalizer.argocd.argoproj.io
+        source:
+          repoURL: git@github.com:GoldennDragonn/beder-k8s-hub.git
+          targetRevision: HEAD
+          path: app-of-apps
+          helm:
+            valueFiles:
+              - values.yaml
+        destination:
+          server: https://kubernetes.default.svc
+          namespace: default
+  
+configs:
+  credentialTemplates:
+    ssh-creds:
+      url: git@gitlab.com:yakovbwork/beder-k8s.git
+      sshPrivateKey: |
+        -----BEGIN OPENSSH PRIVATE KEY-----
+        b3BlbnNzaC1rZXktdjEAAAAABG5vbmUAAAAEbm9uZQAAAAAAAAABAAABFwAAAAdzc2gtcn
+        NhAAAAAwEAAQAAAQEAq37k2dduyrHzXgellsmyir2X1QYqo5cRHirDDUuhy09RLfaHYiyd
+        FIr+IOElK48SA+sHUcvv61dSz2OFk0OIFry+v8h0iiJfVRmAU8PK+I5tZ/biO9kpbRRTzh
+        L0YCku4B10pKu91FSGFy/+XEjF+2gRVMcw+5sV9MdcbIE+Ctrg40YvFLJ99Y3jjmwHvQtn
+        zUrq9ix39yAGRHq2ZVY+tj48hjUlcYJJAMGT3F423YE1PYozndsalDSRoZGM/5gppuKI70
+        NMzf/5ijSu2V89N9Z1cD+cA9AFaT5Z/YOECEiQwy/JWIerp/AuS4cMr22lDeCkUYZo6RwS
+        +oJA9IFulQAAA9BRbC8ZUWwvGQAAAAdzc2gtcnNhAAABAQCrfuTZ127KsfNeB6WWybKKvZ
+        fVBiqjlxEeKsMNS6HLT1Et9odiLJ0Uiv4g4SUrjxID6wdRy+/rV1LPY4WTQ4gWvL6/yHSK
+        Il9VGYBTw8r4jm1n9uI72SltFFPOEvRgKS7gHXSkq73UVIYXL/5cSMX7aBFUxzD7mxX0x1
+        xsgT4K2uDjRi8Usn31jeOObAe9C2fNSur2LHf3IAZEerZlVj62PjyGNSVxgkkAwZPcXjbd
+        gTU9ijOd2xqUNJGhkYz/mCmm4ojvQ0zN//mKNK7ZXz031nVwP5wD0AVpPln9g4QISJDDL8
+        lYh6un8C5LhwyvbaUN4KRRhmjpHBL6gkD0gW6VAAAAAwEAAQAAAQEAp+3TznSkKptiAdtf
+        DG5pBG5utMwbCKGuw2mAIg7DWcBLb8SOAVZKYolQG4YbzbGFJI0KV9BpGHwjvKxpajCgnB
+        MqfcWeSH0r+LrF7EA3Cnj9LOaV1aDqbcOP5KSu41Kwcgil5XG+qqIxw5bdbiRcqbfX8Lo0
+        fsv4Df8Bw8YyqJDcH8523GijHG2Ig52VKsc1p7reoCFtQ5rAmvm9gQcjg8xveVI1cE8CXs
+        AsmG9rU1g6uQNhKkKuWp4XObAHX5jaLwVGJrBRRdGiAeAwjYT5/qWJvAl6PYxFXC5kT1kD
+        ISlYuYmbd9bFi9Fn/vyRwVMZ3MrbIKrrL3W9cHy7VsLcKQAAAIBVZeNGuylTuCFGtO2gcj
+        Zj0jZBwpi9qvBxDFFcuXyWOWW26/KV/hAgQyGKJP9fsYzBbPHxq6+H7To1h7vGp7fPs2ZD
+        roqePxHHKN0VrmdFfx1hl7Mqx5SgVcqYbacr3THChU6frXacmJjWFdPIVSw98mL7RSnaKg
+        0ggK9Rgrmv9wAAAIEA4zFX4P1VGU7BrX4XXXQ8UBNTkIJWmFw951e40F07lYGY2KER3tSG
+        uXvokqR/b1njLEjwbLkMkTtqSgqPxF95rpuPrh8EyXDJjXn5X1T1LY5CJRLslHnD5jR4E1
+        mSO9s0XZbRogd0MmsZfwKfKw/TBQbSCtsSh4bRuaQiR7qDDkcAAACBAME9oPPikP2lt9Km
+        REZMflGMqc2A8Y+DvwHmnNyAo0uZsxNvTrLgdh7l6Nw6do9FoKzvyhOvuksH88Bj7MGxnV
+        YtTjDT54SPcL6Hd3s3MbJFFBXD/AA+NBj7NDslCs+E+Vp0eXOLLl70amt3tExyCVXaiQLP
+        aR5F3Co5fiPlhL5DAAAAFnlha292YmVAVC1DLVlBS09WQkUtTFcBAgME
+        -----END OPENSSH PRIVATE KEY-----
+
+  repositories:
+    beder-k8s-hub:
+      url: git@gitlab.com:yakovbwork/beder-k8s.git
+      name: beder-k8s
+
+  params:
+    server.insecure: true
