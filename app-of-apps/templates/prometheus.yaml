@@ -15,9 +15,12 @@ spec:
     repoURL: 'git@gitlab.com:yakovbwork/beder-k8s.git'
     path: prometheus
     targetRevision: main
+    helm:
+      valueFiles:
+        - yakov-values.yaml
   destination:
     server: 'https://kubernetes.default.svc'
-    namespace: monitoring
+    namespace: default
   {{- if  .Values.prometheus.syncPolicy.enable }}
   syncPolicy:
     automated:

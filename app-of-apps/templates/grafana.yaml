@@ -16,9 +16,12 @@ spec:
     repoURL: 'git@gitlab.com:yakovbwork/beder-k8s.git'
     path: grafana
     targetRevision: main
+    helm:
+      valueFiles:
+        - yakov-values.yaml
   destination:
     server: 'https://kubernetes.default.svc'
-    namespace: monitoring
+    namespace: default
   {{- if .Values.grafana.syncPolicy.enable }}
   syncPolicy:
     automated:
