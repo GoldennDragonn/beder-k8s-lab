@@ -54,7 +54,7 @@ kafdrop:
       selfHeal: true
 
 kafka:
-  enabled: false
+  enabled: true
   syncWave: "3"
   syncPolicy:
     enable: false
