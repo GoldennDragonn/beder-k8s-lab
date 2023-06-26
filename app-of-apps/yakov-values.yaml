@@ -27,7 +27,7 @@ spec:
         factor: 2
 
 grafana:
-  enabled: false
+  enabled: true
   syncWave: "6"
   syncPolicy:
     enabled: true
@@ -35,7 +35,7 @@ grafana:
       prune: true
       selfHeal: true
 prometheus:
-  enabled: false
+  enabled: true
   syncWave: "5"
   syncPolicy:
     enabled: true
@@ -43,7 +43,7 @@ prometheus:
       prune: true
       selfHeal: true
 kafdrop:
-  enabled: false
+  enabled: true
   syncWave: "4"
   namespace: kafka
   syncPolicy:
