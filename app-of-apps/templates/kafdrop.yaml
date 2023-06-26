@@ -21,11 +21,11 @@ spec:
   destination:
     server: 'https://kubernetes.default.svc'
     namespace: default
-  {{- if or .Values.kafdrop.syncPolicy.enable true }}
+  {{- if or .Values.kafdrop.syncPolicy.enable false }}
   syncPolicy:
     automated:
-      prune: {{ .Values.kafdrop.syncPolicy.automated.prune | default true }}
-      selfHeal: {{ .Values.kafdrop.syncPolicy.automated.selfHeal | default true }}
+      prune: {{ .Values.kafdrop.syncPolicy.automated.prune  }}
+      selfHeal: {{ .Values.kafdrop.syncPolicy.automated.selfHeal }}
   {{- end }}
     syncOptions:
     - CreateNamespace=true
