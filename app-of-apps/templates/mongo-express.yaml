@@ -21,10 +21,10 @@ spec:
   destination:
     server: 'https://kubernetes.default.svc'
     namespace: default
-  {{- if or .Values.mongoExpress.syncPolicy.enable true }}
+  {{- if or .Values.mongoExpress.syncPolicy.enable false }}
   syncPolicy:
     automated:
-      prune: {{ or .Values.mongoExpress.syncPolicy.automated.prune false }}
-      selfHeal: {{ or .Values.mongoExpress.syncPolicy.automated.selfHeal false }}
+      prune: {{ .Values.mongoExpress.syncPolicy.automated.prune }}
+      selfHeal: {{ .Values.mongoExpress.syncPolicy.automated.selfHeal }}
   {{- end }}
 {{- end }}
