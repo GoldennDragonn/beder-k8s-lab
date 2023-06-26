@@ -59,9 +59,7 @@ kafka:
   syncPolicy:
     enable: false
   syncOptions:
-    enable: true
-    options: 
-      - CreateNamespace=true  
+    enable: false
 
 mongoExpress:
   enabled: false
