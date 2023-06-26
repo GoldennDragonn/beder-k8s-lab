@@ -74,7 +74,7 @@ nfs:
   enabled: true
   syncWave: "0"
   syncPolicy:
-    enabled: false
+    enabled: true
     automated:
       prune: true
       selfHeal: true
