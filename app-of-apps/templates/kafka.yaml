@@ -9,7 +9,6 @@ metadata:
   annotations:
     argocd.argoproj.io/sync-wave: "{{ .Values.kafka.syncWave }}"
   
-
 spec:
   project: default
   source:
