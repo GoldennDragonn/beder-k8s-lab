@@ -21,7 +21,7 @@ spec:
   destination:
     server: 'https://kubernetes.default.svc'
     namespace: {{ .Values.kafdrop.namespace }}
-  {{- if .Values.kafdrop.syncPolicy.enable }}
+  {{- if or .Values.kafdrop.syncPolicy.enable false }}
   syncPolicy:
     automated:
       prune: {{ .Values.kafdrop.syncPolicy.automated.prune }}
