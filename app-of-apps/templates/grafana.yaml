@@ -18,7 +18,7 @@ spec:
   destination:
     server: 'https://kubernetes.default.svc'
     namespace: default
-  {{- if .Values.grafana.syncPolicy.enable }}
+  {{- if .Values.grafana.syncPolicy.enabled }}
   syncPolicy:
     automated:
       prune: {{ .Values.grafana.syncPolicy.automated.prune }}

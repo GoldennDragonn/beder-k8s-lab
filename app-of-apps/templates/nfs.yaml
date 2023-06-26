@@ -21,7 +21,7 @@ spec:
   destination:
     server: 'https://kubernetes.default.svc'
     namespace: default
-  {{- if .Values.nfs.syncPolicy.enable }}
+  {{- if .Values.nfs.syncPolicy.enabled }}
   syncPolicy:
     automated:
       prune: {{ .Values.nfs.syncPolicy.automated.prune }}
