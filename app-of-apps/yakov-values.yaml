@@ -46,9 +46,8 @@ prometheus:
       prune: true
       selfHeal: true
     syncOptions:
-      enable: true
-      options:
-        - CreateNamespace=true
+      enable: false
+      
 
 kafdrop:
   enabled: true
@@ -65,7 +64,7 @@ kafka:
   syncPolicy:
     enable: true
     syncOptions:
-      enable: true
+      enable: false
       options:
         - CreateNamespace=true
 
