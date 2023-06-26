@@ -34,6 +34,8 @@ grafana:
 kafdrop:
   enabled: false
   syncWave: "2"
+  syncPolicy:
+    enabled: false
 mongoExpress:
   enabled: true
   syncWave: "4"
@@ -44,6 +46,7 @@ mongodbSharded:
     enabled: false
 nfs:
   enabled: true
+  syncWave: "0"
   syncPolicy:
     enabled: false
-  syncWave: "0"
+  
