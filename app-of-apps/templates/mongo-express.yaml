@@ -3,7 +3,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: mongo-express
-  namespace: default
+  namespace: {{ .Values.appNamespace}}
   finalizers:
   - resources-finalizer.argocd.argoproj.io
   annotations:
@@ -21,8 +21,10 @@ spec:
   destination:
     server: 'https://kubernetes.default.svc'
     namespace: default
+  {{- if .Values.mongoExpress.syncPolicy.enable }}
   syncPolicy:
     automated:
-      prune: true
-      selfHeal: true
+      prune: {{ .Values.mongoExpress.syncPolicy.automated.prune }}
+      selfHeal: {{ .Values.mongoExpress.syncPolicy.automated.selfHeal }}
+  {{- end }}
 {{- end }}

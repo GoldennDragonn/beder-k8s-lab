@@ -3,7 +3,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: grafana
-  namespace: default
+  namespace: {{ .Values.appNamespace}}
   finalizers:
     - resources-finalizer.argocd.argoproj.io
   annotations:
@@ -18,8 +18,10 @@ spec:
   destination:
     server: 'https://kubernetes.default.svc'
     namespace: default
+  {{- if .Values.grafana.syncPolicy.enable }}
   syncPolicy:
     automated:
-      prune: true
-      selfHeal: true
+      prune: {{ .Values.grafana.syncPolicy.automated.prune }}
+      selfHeal: {{ .Values.grafana.syncPolicy.automated.selfHeal }}
+  {{- end }}
 {{- end }}
