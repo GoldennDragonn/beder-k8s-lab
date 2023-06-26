@@ -27,6 +27,6 @@ spec:
       prune: {{ .Values.kafdrop.syncPolicy.automated.prune }}
       selfHeal: {{ .Values.kafdrop.syncPolicy.automated.selfHeal }}
   {{- end }}
-    syncOptions:
-    - CreateNamespace=true
+  syncOptions:
+  - CreateNamespace=true
 {{- end }}
