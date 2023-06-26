@@ -28,5 +28,5 @@ spec:
       selfHeal: {{ .Values.kafka.syncPolicy.automated.selfHeal }}
   {{- end }}
   syncOptions:
-  - CreateNamespace=true
+    - CreateNamespace=true
 {{- end }}
