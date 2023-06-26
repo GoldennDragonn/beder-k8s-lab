@@ -44,7 +44,7 @@ prometheus:
       selfHeal: true
 kafdrop:
   enabled: false
-  syncWave: "5"
+  syncWave: "4"
   namespace: kafka
   syncPolicy:
     enabled: true
@@ -53,13 +53,13 @@ kafdrop:
       selfHeal: true
 kafka:
   enabled: true
-  syncWave: "2"
+  syncWave: "3"
   namespace: kafka
   syncPolicy:
     enabled: false
 mongoExpress:
   enabled: false
-  syncWave: "4"
+  syncWave: "2"
   syncPolicy:
     enabled: true
   automated:
