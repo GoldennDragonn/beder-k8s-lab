@@ -1,0 +1,27 @@
+{{- if .Values.prometheus.enabled }}
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: prometheus
+  namespace: {{ .Values.appNamespace}}
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+  annotations:
+    argocd.argoproj.io/sync-wave: "{{ .Values.prometheus.syncWave }}"
+    
+spec:
+  project: default
+  source:
+    repoURL: 'git@gitlab.com:yakovbwork/beder-k8s.git'
+    path: prometheus
+    targetRevision: main
+  destination:
+    server: 'https://kubernetes.default.svc'
+    namespace: default
+  {{- if or .Values.prometheus.syncPolicy.enable false }}
+  syncPolicy:
+    automated:
+      prune: {{ .Values.prometheus.syncPolicy.automated.prune }}
+      selfHeal: {{ .Values.prometheus.syncPolicy.automated.selfHeal }}
+  {{- end }}
+{{- end }}

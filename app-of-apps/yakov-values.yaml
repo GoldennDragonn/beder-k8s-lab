@@ -28,17 +28,56 @@ spec:
 
 grafana:
   enabled: false
-  syncWave: "3"
+  syncWave: "6"
+  syncPolicy:
+    enabled: true
+  automated:
+      prune: true
+      selfHeal: true
+prometheus:
+  enabled: false
+  syncWave: "5"
+  syncPolicy:
+    enabled: true
+  automated:
+      prune: true
+      selfHeal: true
 kafdrop:
   enabled: false
+  syncWave: "5"
+  namespace: kafka
+  syncPolicy:
+    enabled: true
+    automated:
+      prune: true
+      selfHeal: true
+kafka:
+  enabled: true
   syncWave: "2"
+  namespace: kafka
+  syncPolicy:
+    enabled: false
 mongoExpress:
-  enabled: true
+  enabled: false
   syncWave: "4"
+  syncPolicy:
+    enabled: true
+  automated:
+      prune: true
+      selfHeal: true
 mongodbSharded:
-  enabled: true
+  enabled: false
   syncWave: "1"
+  syncPolicy:
+    enabled: false
 nfs:
   enabled: true
   syncWave: "0"
+  syncPolicy:
+    enabled: false
+  automated:
+      prune: true
+      selfHeal: true
+
+
   

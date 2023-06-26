@@ -1,31 +1,31 @@
-{{- if .Values.kafdrop.enabled }}
+{{- if .Values.kafka.enabled }}
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: kafdrop
+  name: kafka
   namespace: default
   finalizers:
   - resources-finalizer.argocd.argoproj.io
   annotations:
-    argocd.argoproj.io/sync-wave: "{{ .Values.kafdrop.syncWave }}"
+    argocd.argoproj.io/sync-wave: "{{ .Values.kafka.syncWave }}"
 
 spec:
   project: default
   source:
     repoURL: 'git@gitlab.com:yakovbwork/beder-k8s.git'
-    path: kafdrop/chart
+    path: kafka
     targetRevision: main
     helm:
       valueFiles:
         - yakov-values.yaml
   destination:
     server: 'https://kubernetes.default.svc'
-    namespace: {{ .Values.kafdrop.namespace }}
-  {{- if or .Values.kafdrop.syncPolicy.enable false }}
+    namespace: {{ .Values.kafka.namespace }}
+  {{- if or .Values.kafka.syncPolicy.enable false }}
   syncPolicy:
     automated:
-      prune: {{ .Values.kafdrop.syncPolicy.automated.prune }}
-      selfHeal: {{ .Values.kafdrop.syncPolicy.automated.selfHeal }}
+      prune: {{ .Values.kafka.syncPolicy.automated.prune }}
+      selfHeal: {{ .Values.kafka.syncPolicy.automated.selfHeal }}
   {{- end }}
     syncOptions:
     - CreateNamespace=true
