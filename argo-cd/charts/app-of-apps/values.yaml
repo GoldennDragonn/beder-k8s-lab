@@ -10,7 +10,7 @@ spec:
   project: default
   source:
     repoURL: 'git@gitlab.com:yakovbwork/beder-k8s.git'
-    path: argo-cd/app-of-apps
+    path: argo-cd/charts/app-of-apps
     targetRevision: main
   destination:
     server: 'https://kubernetes.default.svc'
@@ -36,7 +36,7 @@ kafdrop:
   namespace: default
 
 mongoExpress:
-  enabled: true
+  enabled: false
   syncWave: "4"
 mongodbSharded:
   enabled: false
