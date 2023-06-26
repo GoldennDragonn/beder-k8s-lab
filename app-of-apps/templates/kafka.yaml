@@ -21,7 +21,7 @@ spec:
   destination:
     server: 'https://kubernetes.default.svc'
     namespace: {{ .Values.kafka.namespace }}
-  {{- if or .Values.kafka.syncPolicy.enable false }}
+  {{- if  .Values.kafka.syncPolicy.enable }}
   syncPolicy:
     automated:
       prune: {{ .Values.kafka.syncPolicy.automated.prune }}

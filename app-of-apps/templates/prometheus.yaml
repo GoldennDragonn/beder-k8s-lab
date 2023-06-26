@@ -18,7 +18,7 @@ spec:
   destination:
     server: 'https://kubernetes.default.svc'
     namespace: default
-  {{- if or .Values.prometheus.syncPolicy.enable false }}
+  {{- if  .Values.prometheus.syncPolicy.enable }}
   syncPolicy:
     automated:
       prune: {{ .Values.prometheus.syncPolicy.automated.prune }}
