@@ -24,7 +24,7 @@ spec:
   {{- if or .Values.mongoExpress.syncPolicy.enable true }}
   syncPolicy:
     automated:
-      prune: {{ or .Values.mongoExpress.syncPolicy.automated.prune true }}
-      selfHeal: {{ or .Values.mongoExpress.syncPolicy.automated.selfHeal true }}
+      prune: {{ or .Values.mongoExpress.syncPolicy.automated.prune false }}
+      selfHeal: {{ or .Values.mongoExpress.syncPolicy.automated.selfHeal false }}
   {{- end }}
 {{- end }}
