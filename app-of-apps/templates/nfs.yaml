@@ -20,7 +20,7 @@ spec:
         - yakov-values.yaml
   destination:
     server: 'https://kubernetes.default.svc'
-    namespace: {{ .Values.nfs.namespace }}
+    namespace: nfs
   {{- if  .Values.nfs.syncPolicy.enable }}
   syncPolicy:
     automated:

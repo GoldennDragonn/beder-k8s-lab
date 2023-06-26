@@ -17,7 +17,7 @@ spec:
     targetRevision: main
   destination:
     server: 'https://kubernetes.default.svc'
-    namespace: {{ .Values.prometheus.namespace }}
+    namespace: monitoring
   {{- if  .Values.prometheus.syncPolicy.enable }}
   syncPolicy:
     automated:

@@ -20,7 +20,7 @@ spec:
         - yakov-values.yaml
   destination:
     server: 'https://kubernetes.default.svc'
-    namespace: {{ .Values.mongoExpress.namespace }}
+    namespace: mongo
   {{- if  .Values.mongoExpress.syncPolicy.enable }}
   syncPolicy:
     automated:

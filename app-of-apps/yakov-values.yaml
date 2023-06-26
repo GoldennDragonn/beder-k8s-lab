@@ -62,7 +62,7 @@ kafka:
 mongoExpress:
   enabled: false
   syncWave: "2"
-  namespace: mongo
+  # namespace: mongo
   syncPolicy:
     enable: true
     automated:
@@ -71,13 +71,13 @@ mongoExpress:
 mongodbSharded:
   enabled: false
   syncWave: "1"
-  namespace: mongo
+  # namespace: mongo
   syncPolicy:
     enable: false
 nfs:
   enabled: true
   syncWave: "0"
-  namespace: nfs
+  # namespace: nfs
   syncPolicy:
     enable: true
     automated:
