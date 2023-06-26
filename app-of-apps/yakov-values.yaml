@@ -29,6 +29,7 @@ spec:
 grafana:
   enabled: true
   syncWave: "6"
+  namespace: monitoring
   syncPolicy:
     enable: true
     automated:
@@ -37,6 +38,7 @@ grafana:
 prometheus:
   enabled: true
   syncWave: "5"
+  namespace: monitoring
   syncPolicy:
     enable: true
     automated:
@@ -60,6 +62,7 @@ kafka:
 mongoExpress:
   enabled: false
   syncWave: "2"
+  namespace: mongo
   syncPolicy:
     enable: true
     automated:
@@ -68,11 +71,13 @@ mongoExpress:
 mongodbSharded:
   enabled: false
   syncWave: "1"
+  namespace: mongo
   syncPolicy:
     enable: false
 nfs:
   enabled: true
   syncWave: "0"
+  namespace: nfs
   syncPolicy:
     enable: true
     automated:

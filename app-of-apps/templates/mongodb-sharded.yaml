@@ -20,7 +20,7 @@ spec:
         - yakov-values.yaml
   destination:
     server: 'https://kubernetes.default.svc'
-    namespace: default
+    namespace: {{ .Values.mongodbSharded.namespace }}
   {{- if  .Values.mongodbSharded.syncPolicy.enable }}
   syncPolicy:
     automated:
