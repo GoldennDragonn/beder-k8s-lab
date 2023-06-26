@@ -39,7 +39,7 @@ mongoExpress:
   enabled: true
   syncWave: "4"
 mongodbSharded:
-  enabled: true
+  enabled: false
   syncWave: "1"
   syncPolicy:
     enabled: false
