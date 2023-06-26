@@ -45,8 +45,8 @@ prometheus:
     automated:
       prune: true
       selfHeal: true
-    syncOptions:
-      enable: false
+  syncOptions:
+    enable: false
       
 
 kafdrop:
