@@ -30,7 +30,7 @@ grafana:
   enabled: true
   syncWave: "6"
   syncPolicy:
-    enabled: true
+    enable: true
     automated:
       prune: true
       selfHeal: true
@@ -38,7 +38,7 @@ prometheus:
   enabled: true
   syncWave: "5"
   syncPolicy:
-    enabled: true
+    enable: true
     automated:
       prune: true
       selfHeal: true
@@ -47,7 +47,7 @@ kafdrop:
   syncWave: "4"
   namespace: kafka
   syncPolicy:
-    enabled: true
+    enable: true
     automated:
       prune: true
       selfHeal: true
@@ -56,12 +56,12 @@ kafka:
   syncWave: "3"
   namespace: kafka
   syncPolicy:
-    enabled: false
+    enable: false
 mongoExpress:
   enabled: false
   syncWave: "2"
   syncPolicy:
-    enabled: true
+    enable: true
     automated:
       prune: true
       selfHeal: true
@@ -69,12 +69,12 @@ mongodbSharded:
   enabled: false
   syncWave: "1"
   syncPolicy:
-    enabled: false
+    enable: false
 nfs:
   enabled: true
   syncWave: "0"
   syncPolicy:
-    enabled: true
+    enable: true
     automated:
       prune: true
       selfHeal: true
