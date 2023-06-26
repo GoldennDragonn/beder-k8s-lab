@@ -34,6 +34,8 @@ grafana:
     automated:
       prune: true
       selfHeal: true
+  syncOptions:
+      enable: false
 
 prometheus:
   enabled: true
@@ -44,7 +46,7 @@ prometheus:
       prune: true
       selfHeal: true
   syncOptions:
-      enable: false
+      enable: true
       options:
         - CreateNamespace=true
 
