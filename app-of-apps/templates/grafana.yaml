@@ -3,7 +3,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: grafana
-  namespace: {{ .Values.appNamespace}}
+  namespace: grafana
   finalizers:
     - resources-finalizer.argocd.argoproj.io
   annotations:
