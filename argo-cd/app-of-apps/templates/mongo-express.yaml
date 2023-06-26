@@ -1,0 +1,28 @@
+{{- if .Values.mongoExpress.enabled }}
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: mongo-express
+  namespace: default
+  finalizers:
+  - resources-finalizer.argocd.argoproj.io
+  annotations:
+    argocd.argoproj.io/sync-wave: "{{ .Values.mongoExpress.syncWave }}"
+
+spec:
+  project: default
+  source:
+    repoURL: 'git@gitlab.com:yakovbwork/beder-k8s.git'
+    path: mongo-express
+    targetRevision: main
+    helm:
+      valueFiles:
+        - yakov-values.yaml
+  destination:
+    server: 'https://kubernetes.default.svc'
+    namespace: default
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+{{- end }}

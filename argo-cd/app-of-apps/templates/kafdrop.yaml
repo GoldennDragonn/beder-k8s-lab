@@ -1,0 +1,30 @@
+{{- if .Values.kafdrop.enabled }}
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: kafdrop
+  namespace: {{ .Values.appNamespace}}
+  finalizers:
+  - resources-finalizer.argocd.argoproj.io
+  annotations:
+    argocd.argoproj.io/sync-wave: "{{ .Values.kafdrop.syncWave }}"
+
+spec:
+  project: default
+  source:
+    repoURL: 'git@gitlab.com:yakovbwork/beder-k8s.git'
+    path: kafdrop/chart
+    targetRevision: main
+    helm:
+      valueFiles:
+        - yakov-values.yaml
+  destination:
+    server: 'https://kubernetes.default.svc'
+    namespace: {{ .Values.kafdrop.namespace }}
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+    - CreateNamespace=true
+{{- end }}

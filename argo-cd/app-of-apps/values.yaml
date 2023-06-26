@@ -1,0 +1,48 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: app-of-apps
+  namespace: default
+  finalizers:
+  - resources-finalizer.argocd.argoproj.io
+
+spec:
+  project: default
+  source:
+    repoURL: 'git@gitlab.com:yakovbwork/beder-k8s.git'
+    path: app-of-apps
+    targetRevision: main
+  destination:
+    server: 'https://kubernetes.default.svc'
+    namespace: default
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    retry:
+      limit: 5
+      backoff:
+        duration: 5s
+        maxDuration: 3m0s
+        factor: 2
+
+grafana:
+  enabled: false
+  syncWave: "3"
+kafdrop:
+  enabled: false
+  syncWave: "2"
+  appNamespace: default
+  namespace: default
+
+mongoExpress:
+  enabled: true
+  syncWave: "4"
+mongodbSharded:
+  enabled: false
+  syncWave: "1"
+  syncPolicy:
+    enabled: false
+nfs:
+  enabled: true
+  syncWave: "0"
