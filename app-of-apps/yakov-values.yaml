@@ -63,7 +63,7 @@ kafka:
   enabled: true
   syncWave: "3"
   syncPolicy:
-    enable: false
+    enable: true
   syncOptions:
     enable: true
     options:
