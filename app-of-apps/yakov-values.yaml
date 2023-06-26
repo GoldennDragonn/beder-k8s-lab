@@ -60,7 +60,7 @@ kafka:
     enable: false
 
 mongoExpress:
-  enabled: true
+  enabled: false
   syncWave: "2"
   syncPolicy:
     enable: true
@@ -75,7 +75,7 @@ mongodbSharded:
     enable: false
 
 nfs:
-  enabled: false
+  enabled: true
   syncWave: "0"
   syncPolicy:
     enable: true
