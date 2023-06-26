@@ -29,7 +29,7 @@ spec:
   {{- end }}
     {{- if .Values.prometheus.syncOptions.enable }}
     syncOptions:
-    {{- range .Values.prometheus.syncOptions.options }}
+    {{- range .Values.prometheus.syncOptions }}
       - {{ . }}
     {{- end }}
     {{- end }}

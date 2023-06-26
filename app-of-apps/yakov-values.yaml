@@ -45,8 +45,11 @@ prometheus:
     automated:
       prune: true
       selfHeal: true
-  syncOptions:
-    enable: false
+    syncOptions:
+      enable: true
+      options:
+        - CreateNamespace=true
+
       
 
 kafdrop:
