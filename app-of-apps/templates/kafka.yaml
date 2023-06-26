@@ -27,6 +27,6 @@ spec:
       prune: {{ .Values.kafka.syncPolicy.automated.prune }}
       selfHeal: {{ .Values.kafka.syncPolicy.automated.selfHeal }}
   {{- end }}
-    syncOptions:
-    - CreateNamespace=true
+    # syncOptions:
+    # - CreateNamespace=true
 {{- end }}
