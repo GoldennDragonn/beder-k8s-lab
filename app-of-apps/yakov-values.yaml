@@ -92,10 +92,10 @@ mongodbSharded:
   syncWave: "1"
   syncPolicy:
     enable: false
-  # syncOptions:
-  #   enable: true
-  #   options:
-  #     - CreateNamespace=true
+  syncOptions:
+    enable: false
+    # options:
+    #   - CreateNamespace=true
 
 nfs:
   enabled: true
