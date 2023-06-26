@@ -68,8 +68,8 @@ kafka:
     enable: true
   syncOptions:
     enable: false
-    options:
-      - CreateNamespace=true
+    # options:
+    #   - CreateNamespace=true
 
 mongoExpress:
   enabled: false
