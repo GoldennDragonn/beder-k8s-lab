@@ -3,7 +3,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: kafdrop
-  namespace: default
+  namespace: {{ .Values.appNamespace}}
   finalizers:
   - resources-finalizer.argocd.argoproj.io
   annotations:
@@ -20,11 +20,11 @@ spec:
         - yakov-values.yaml
   destination:
     server: 'https://kubernetes.default.svc'
-    namespace: default
-  {{- if or .Values.kafdrop.syncPolicy.enable false }}
+    namespace: {{ .Values.kafdrop.namespace }}
+  {{- if .Values.kafdrop.syncPolicy.enable }}
   syncPolicy:
     automated:
-      prune: {{ .Values.kafdrop.syncPolicy.automated.prune  }}
+      prune: {{ .Values.kafdrop.syncPolicy.automated.prune }}
       selfHeal: {{ .Values.kafdrop.syncPolicy.automated.selfHeal }}
   {{- end }}
     syncOptions:
