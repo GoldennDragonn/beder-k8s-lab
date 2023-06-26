@@ -29,7 +29,7 @@ spec:
 grafana:
   enabled: false
   syncWave: "6"
-  namespace: monitoring
+  # namespace: monitoring
   syncPolicy:
     enable: true
     automated:
@@ -38,7 +38,7 @@ grafana:
 prometheus:
   enabled: false
   syncWave: "5"
-  namespace: monitoring
+  # namespace: monitoring
   syncPolicy:
     enable: true
     automated:
