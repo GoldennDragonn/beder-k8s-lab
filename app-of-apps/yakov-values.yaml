@@ -45,10 +45,10 @@ prometheus:
     automated:
       prune: true
       selfHeal: true
-    syncOptions:
-      enable: true
-      options:
-        - CreateNamespace=true
+  syncOptions:
+    enable: true
+    options:
+      - CreateNamespace=true
 
       
 
@@ -66,10 +66,10 @@ kafka:
   syncWave: "3"
   syncPolicy:
     enable: true
-    syncOptions:
-      enable: false
-      options:
-        - CreateNamespace=true
+  syncOptions:
+    enable: false
+    options:
+      - CreateNamespace=true
 
 mongoExpress:
   enabled: false
