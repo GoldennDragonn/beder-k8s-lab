@@ -27,10 +27,10 @@ spec:
       prune: {{ .Values.prometheus.syncPolicy.automated.prune }}
       selfHeal: {{ .Values.prometheus.syncPolicy.automated.selfHeal }}
   {{- end }}
-  {{- if .Values.prometheus.syncOptions.enable }}
-  syncOptions:
-  {{- range .Values.prometheus.syncOptions.options }}
-    - {{ . }}
-  {{- end }}
-  {{- end }}
+    {{- if .Values.prometheus.syncOptions.enable }}
+    syncOptions:
+    {{- range .Values.prometheus.syncOptions.options }}
+      - {{ . }}
+    {{- end }}
+    {{- end }}
 {{- end }}

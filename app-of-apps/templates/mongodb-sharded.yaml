@@ -28,9 +28,9 @@ spec:
       selfHeal: {{ .Values.mongodbSharded.syncPolicy.automated.selfHeal }}
   {{- end }}
   {{- if .Values.mongodbSharded.syncOptions.enable }}
-  syncOptions:
-  {{- range .Values.mongodbSharded.syncOptions.options }}
-    - {{ . }}
-  {{- end }}
-  {{- end }}
+    syncOptions:
+    {{- range .Values.mongodbSharded.syncOptions.options }}
+      - {{ . }}
+    {{- end }}
+    {{- end }}
 {{- end }}

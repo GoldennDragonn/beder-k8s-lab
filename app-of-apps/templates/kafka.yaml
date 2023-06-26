@@ -27,10 +27,10 @@ spec:
       prune: {{ .Values.kafka.syncPolicy.automated.prune }}
       selfHeal: {{ .Values.kafka.syncPolicy.automated.selfHeal }}
   {{- end }}
-  {{- if .Values.kafka.syncOptions.enable }}
-  syncOptions:
-  {{- range .Values.kafka.syncOptions.options }}
-    - {{ . }}
-  {{- end }}
-  {{- end }}
+    {{- if .Values.kafka.syncOptions.enable }}
+    syncOptions:
+    {{- range .Values.kafka.syncOptions.options }}
+      - {{ . }}
+    {{- end }}
+    {{- end }}
 {{- end }}

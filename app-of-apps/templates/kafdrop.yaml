@@ -28,9 +28,9 @@ spec:
       selfHeal: {{ .Values.kafdrop.syncPolicy.automated.selfHeal }}
   {{- end }}
   {{- if .Values.kafka.syncOptions.enable }}
-  syncOptions:
-  {{- range .Values.kafka.syncOptions.options }}
-    - {{ . }}
-  {{- end }}
-  {{- end }}
+    syncOptions:
+    {{- range .Values.kafka.syncOptions.options }}
+      - {{ . }}
+    {{- end }}
+    {{- end }}
 {{- end }}

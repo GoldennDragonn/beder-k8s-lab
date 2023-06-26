@@ -28,9 +28,9 @@ spec:
       selfHeal: {{ .Values.mongoExpress.syncPolicy.automated.selfHeal }}
   {{- end }}
   {{- if .Values.mongoExpress.syncOptions.enable }}
-  syncOptions:
-  {{- range .Values.mongoExpress.syncOptions.options }}
-    - {{ . }}
-  {{- end }}
-  {{- end }}
+    syncOptions:
+    {{- range .Values.mongoExpress.syncOptions.options }}
+      - {{ . }}
+    {{- end }}
+    {{- end }}
 {{- end }}
