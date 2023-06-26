@@ -27,10 +27,10 @@ spec:
       prune: {{ .Values.mongodbSharded.syncPolicy.automated.prune }}
       selfHeal: {{ .Values.mongodbSharded.syncPolicy.automated.selfHeal }}
   {{- end }}
-  {{- if .Values.mongodbSharded.syncOptions.enable }}
+    {{- if .Values.mongodbSharded.syncOptions.enable }}
     syncOptions:
-    {{- range .Values.mongodbSharded.syncOptions.options }}
+      {{- range .Values.mongodbSharded.syncOptions.options }}
       - {{ . }}
-    {{- end }}
+      {{- end }}
     {{- end }}
 {{- end }}

@@ -51,7 +51,6 @@ prometheus:
       - CreateNamespace=true
 
       
-
 kafdrop:
   enabled: false
   syncWave: "4"
@@ -60,6 +59,9 @@ kafdrop:
     automated:
       prune: true
       selfHeal: true
+  syncOptions:
+    enable: false
+    
 
 kafka:
   enabled: false
@@ -70,9 +72,9 @@ kafka:
       prune: true
       selfHeal: true
   syncOptions:
-    enable: false
-    # options:
-    #   - CreateNamespace=true
+    enable: true
+    options:
+      - CreateNamespace=true
 
 mongoExpress:
   enabled: false
@@ -82,12 +84,18 @@ mongoExpress:
     automated:
       prune: true
       selfHeal: true
+  syncOptions:
+    enable: false
 
 mongodbSharded:
   enabled: false
   syncWave: "1"
   syncPolicy:
     enable: false
+  syncOptions:
+    enable: true
+    options:
+      - CreateNamespace=true
 
 nfs:
   enabled: true
@@ -97,6 +105,10 @@ nfs:
     automated:
       prune: true
       selfHeal: true
+  syncOptions:
+    enable: true
+    options:
+      - CreateNamespace=true
 
 
   

@@ -27,10 +27,10 @@ spec:
       prune: {{ .Values.grafana.syncPolicy.automated.prune }}
       selfHeal: {{ .Values.grafana.syncPolicy.automated.selfHeal }}
   {{- end }}
-    {{- if .Values.kafka.syncOptions.enable }}
+    {{- if .Values.grafana.syncOptions.enable }}
     syncOptions:
-    {{- range .Values.kafka.syncOptions.options }}
+      {{- range .Values.grafana.syncOptions.options }}
       - {{ . }}
-    {{- end }}
+      {{- end }}
     {{- end }}
 {{- end }}

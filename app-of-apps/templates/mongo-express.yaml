@@ -27,10 +27,10 @@ spec:
       prune: {{ .Values.mongoExpress.syncPolicy.automated.prune }}
       selfHeal: {{ .Values.mongoExpress.syncPolicy.automated.selfHeal }}
   {{- end }}
-  {{- if .Values.mongoExpress.syncOptions.enable }}
+    {{- if .Values.mongoExpress.syncOptions.enable }}
     syncOptions:
-    {{- range .Values.mongoExpress.syncOptions.options }}
+      {{- range .Values.mongoExpress.syncOptions.options }}
       - {{ . }}
-    {{- end }}
+      {{- end }}
     {{- end }}
 {{- end }}

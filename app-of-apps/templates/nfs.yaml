@@ -27,4 +27,10 @@ spec:
       prune: {{ .Values.nfs.syncPolicy.automated.prune }}
       selfHeal: {{ .Values.nfs.syncPolicy.automated.selfHeal }}
   {{- end }}
+    {{- if .Values.nfs.syncOptions.enable }}
+    syncOptions:
+      {{- range .Values.nfs.syncOptions.options }}
+      - {{ . }}
+      {{- end }}
+    {{- end }}
 {{- end }}
