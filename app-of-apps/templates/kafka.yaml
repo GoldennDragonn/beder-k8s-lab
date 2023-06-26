@@ -21,7 +21,7 @@ spec:
         - yakov-values.yaml
   destination:
     server: 'https://kubernetes.default.svc'
-    namespace: {{ .Values.kafka.namespace }}
+    namespace: {{ .Values.kafka.destination.namespace }}
   {{- if  .Values.kafka.syncPolicy.enable }}
   syncPolicy:
     automated:

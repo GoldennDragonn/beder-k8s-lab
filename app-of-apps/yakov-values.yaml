@@ -56,7 +56,8 @@ kafdrop:
 kafka:
   enabled: true
   syncWave: "3"
-  namespace: kafka
+  destination:
+    namespace: kafka
   syncPolicy:
     enable: false
 mongoExpress:
