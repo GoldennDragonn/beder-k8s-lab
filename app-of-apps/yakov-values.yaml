@@ -45,7 +45,7 @@ prometheus:
       prune: true
       selfHeal: true
 kafdrop:
-  enabled: false
+  enabled: true
   syncWave: "4"
   namespace: kafka
   syncPolicy:
@@ -54,7 +54,7 @@ kafdrop:
       prune: true
       selfHeal: true
 kafka:
-  enabled: true
+  enabled: false
   syncWave: "3"
   namespace: kafka
   syncPolicy:
@@ -75,7 +75,7 @@ mongodbSharded:
   syncPolicy:
     enable: false
 nfs:
-  enabled: true
+  enabled: false
   syncWave: "0"
   # namespace: nfs
   syncPolicy:
