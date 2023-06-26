@@ -27,6 +27,10 @@ spec:
       prune: {{ .Values.kafdrop.syncPolicy.automated.prune }}
       selfHeal: {{ .Values.kafdrop.syncPolicy.automated.selfHeal }}
   {{- end }}
-  # syncOptions:
-  #   - CreateNamespace=true
+  {- if .Values.kafka.syncOptions.enable }}
+  syncOptions:
+  {{- range .Values.kafka.syncOptions.options }}
+    - {{ . }}
+  {{- end }}
+  {{- end }}
 {{- end }}

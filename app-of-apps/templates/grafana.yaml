@@ -20,11 +20,17 @@ spec:
         - yakov-values.yaml
   destination:
     server: 'https://kubernetes.default.svc'
-    namespace: default
+    namespace: monitoring
   {{- if .Values.grafana.syncPolicy.enable }}
   syncPolicy:
     automated:
       prune: {{ .Values.grafana.syncPolicy.automated.prune }}
       selfHeal: {{ .Values.grafana.syncPolicy.automated.selfHeal }}
+  {{- end }}
+  {{- if .Values.kafka.syncOptions.enable }}
+  syncOptions:
+  {{- range .Values.kafka.syncOptions.options }}
+    - {{ . }}
+  {{- end }}
   {{- end }}
 {{- end }}

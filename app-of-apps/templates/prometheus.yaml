@@ -20,11 +20,17 @@ spec:
         - yakov-values.yaml
   destination:
     server: 'https://kubernetes.default.svc'
-    namespace: default
+    namespace: monitoring
   {{- if  .Values.prometheus.syncPolicy.enable }}
   syncPolicy:
     automated:
       prune: {{ .Values.prometheus.syncPolicy.automated.prune }}
       selfHeal: {{ .Values.prometheus.syncPolicy.automated.selfHeal }}
+  {{- end }}
+  {{- if .Values.prometheus.syncOptions.enable }}
+  syncOptions:
+  {{- range .Values.prometheus.syncOptions.options }}
+    - {{ . }}
+  {{- end }}
   {{- end }}
 {{- end }}
