@@ -8,7 +8,7 @@ metadata:
   - resources-finalizer.argocd.argoproj.io
   annotations:
     argocd.argoproj.io/sync-wave: "{{ .Values.kafka.syncWave }}"
-    linkerd.io/inject: enabled
+  
 
 spec:
   project: default
