@@ -58,6 +58,10 @@ kafka:
   syncWave: "3"
   syncPolicy:
     enable: false
+  syncOptions:
+    enable: true
+    options: 
+      - CreateNamespace=true  
 
 mongoExpress:
   enabled: false
