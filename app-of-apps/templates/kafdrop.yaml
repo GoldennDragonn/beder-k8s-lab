@@ -27,7 +27,7 @@ spec:
       prune: {{ .Values.kafdrop.syncPolicy.automated.prune }}
       selfHeal: {{ .Values.kafdrop.syncPolicy.automated.selfHeal }}
   {{- end }}
-  {- if .Values.kafka.syncOptions.enable }}
+  {{- if .Values.kafka.syncOptions.enable }}
   syncOptions:
   {{- range .Values.kafka.syncOptions.options }}
     - {{ . }}
