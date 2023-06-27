@@ -543,9 +543,9 @@ datasources:
      url: http://prometheus.linkerd-viz.svc.cluster.local:9090
      access: proxy
      isDefault: true
-     jsonData:
-      timeInterval: "5s"
-      editable: true
+    #  jsonData:
+    #   timeInterval: "5s"
+    #   editable: true
 #    - name: CloudWatch
 #      type: cloudwatch
 #      access: proxy
