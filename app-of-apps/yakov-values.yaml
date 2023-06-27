@@ -38,7 +38,7 @@ grafana:
       enable: false
 
 prometheus:
-  enabled: false
+  enabled: true
   syncWave: "5"
   syncPolicy:
     enable: true
