@@ -543,9 +543,9 @@ datasources:
      url: http://prometheus.linkerd-viz.svc.cluster.local:9090
      access: proxy
      isDefault: true
-    #  jsonData:
-    #   timeInterval: "5s"
-    #   editable: true
+     jsonData:
+      timeInterval: "5s"
+      editable: true
 #    - name: CloudWatch
 #      type: cloudwatch
 #      access: proxy
@@ -790,23 +790,23 @@ grafana.ini:
   server:
     domain: "{{ if (and .Values.ingress.enabled .Values.ingress.hosts) }}{{ .Values.ingress.hosts | first }}{{ else }}''{{ end }}"
 ## grafana Authentication can be enabled with the following values on grafana.ini
-    # root_url: '%(protocol)s://%(domain)s:/grafana/'
-  # auth:
-  #   disable_login_form: true
-  # auth.anonymous:
-  #   enabled: true
-  #   org_role: Editor
-  # auth.basic:
-  #   enabled: false
-  # analytics:
-  #   check_for_updates: false
-  # panels:
-  #   disable_sanitize_html: true
-  # log:
-  #   mode: console
-  # log.console:
-  #   format: text
-  #   level: info
+    root_url: '%(protocol)s://%(domain)s:/grafana/'
+  auth:
+    disable_login_form: true
+  auth.anonymous:
+    enabled: true
+    org_role: Editor
+  auth.basic:
+    enabled: false
+  analytics:
+    check_for_updates: false
+  panels:
+    disable_sanitize_html: true
+  log:
+    mode: console
+  log.console:
+    format: text
+    level: info
  # server:
       # The full public facing url you use in browser, used for redirects and emails
  #    root_url:
