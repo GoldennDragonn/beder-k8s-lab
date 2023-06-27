@@ -534,28 +534,18 @@ plugins: []
 ## Configure grafana datasources
 ## ref: http://docs.grafana.org/administration/provisioning/#datasources
 ##
-datasources:
-datasources.yaml:
-  apiVersion: 1
-  datasources:
-  - name: prometheus
-    type: prometheus
-    access: proxy
-    orgId: 1
-    url: http://prometheus.linkerd-viz.svc.cluster.local:9090
-    isDefault: true
-    jsonData:
+datasources: 
+ datasources.yaml:
+   apiVersion: 1
+   datasources:
+   - name: Prometheus
+     type: prometheus
+     url: http://prometheus.linkerd-viz.svc.cluster.local:9090
+     access: proxy
+     isDefault: true
+     jsonData:
       timeInterval: "5s"
-    editable: true
-# datasources: 
-#  datasources.yaml:
-#    apiVersion: 1
-#    datasources:
-#    - name: Prometheus
-#      type: prometheus
-#      url: http://prometheus-server:80
-#      access: proxy
-#      isDefault: true
+      editable: true
 #    - name: CloudWatch
 #      type: cloudwatch
 #      access: proxy
