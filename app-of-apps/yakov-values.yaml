@@ -27,7 +27,7 @@ spec:
         factor: 2
 
 grafana:
-  enabled: false
+  enabled: true
   syncWave: "6"
   syncPolicy:
     enable: true
@@ -77,7 +77,7 @@ kafka:
       - CreateNamespace=true
 
 mongoExpress:
-  enabled: true
+  enabled: false
   syncWave: "2"
   syncPolicy:
     enable: true
@@ -88,7 +88,7 @@ mongoExpress:
     enable: false
 
 mongodbSharded:
-  enabled: true
+  enabled: false
   syncWave: "1"
   syncPolicy:
     enable: false
