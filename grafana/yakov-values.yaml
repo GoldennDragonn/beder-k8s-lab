@@ -538,7 +538,7 @@ datasources:
  datasources.yaml:
    apiVersion: 1
    datasources:
-   - name: Prometheus
+   - name: prometheus
      type: prometheus
      url: http://prometheus.linkerd-viz.svc.cluster.local:9090
      access: proxy
