@@ -27,7 +27,7 @@ spec:
         factor: 2
 
 grafana:
-  enabled: false
+  enabled: true
   syncWave: "6"
   syncPolicy:
     enable: true
