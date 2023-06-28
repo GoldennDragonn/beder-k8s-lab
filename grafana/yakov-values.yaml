@@ -790,7 +790,8 @@ grafana.ini:
   server:
     domain: "{{ if (and .Values.ingress.enabled .Values.ingress.hosts) }}{{ .Values.ingress.hosts | first }}{{ else }}''{{ end }}"
 ## grafana Authentication can be enabled with the following values on grafana.ini
-    root_url: '%(protocol)s://%(domain)s:/grafana/'
+    # root_url: '%(protocol)s://%(domain)s:/grafana/'
+    root_url:
   auth:
     disable_login_form: false
   auth.anonymous:
