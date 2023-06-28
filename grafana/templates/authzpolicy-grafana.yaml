@@ -1,7 +1,7 @@
 apiVersion: policy.linkerd.io/v1alpha1
 kind: AuthorizationPolicy
 metadata:
-  namespace: linkerd-viz
+  namespace: monitoring
   name: grafana
 spec:
   targetRef:
