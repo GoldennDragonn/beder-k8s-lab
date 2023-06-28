@@ -151,8 +151,7 @@ downloadDashboardsImage:
   
 
 downloadDashboards:
-  env:  
-   DS_PROMETHEUS: prometheus
+  env: {} 
   envFromSecret: ""
   resources: {}
   securityContext: {}
@@ -664,12 +663,12 @@ dashboardProviders:
 ##
 ## dashboards per provider, use provider name as key.
 ##
-dashboards: 
-    default:
-    # all these charts are hosted at https://grafana.com/grafana/dashboards/{id}
-      top-line:
-        gnetId: 721
-        datasource: prometheus
+# dashboards: 
+#     default:
+#     # all these charts are hosted at https://grafana.com/grafana/dashboards/{id}
+#       top-line:
+#         gnetId: 721
+#         datasource: prometheus
 #       health:
 #         gnetId: 15486
 #         revision: 3
@@ -769,8 +768,9 @@ dashboards:
 ##   example-dashboard.json: |
 ##     RAW_JSON
 ##
-dashboardsConfigMaps: {}
+dashboardsConfigMaps: 
 #  default: ""
+  default: "grafana-dashboards"
 
 ## Grafana's primary configuration
 ## NOTE: values in map will be converted to ini format
