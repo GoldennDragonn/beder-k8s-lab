@@ -147,6 +147,8 @@ downloadDashboardsImage:
   tag: 7.85.0
   sha: ""
   pullPolicy: IfNotPresent
+  env:  
+   DS_PROMETHEUS: prometheus
   
 
 downloadDashboards:
@@ -545,6 +547,7 @@ datasources:
      jsonData:
       timeInterval: "5s"
       editable: true
+      uid: prometheus-yakov
 #    - name: CloudWatch
 #      type: cloudwatch
 #      access: proxy
@@ -661,7 +664,7 @@ dashboardProviders:
 ##
 ## dashboards per provider, use provider name as key.
 ##
-# dashboards: 
+dashboards: 
 #     default:
 #     # all these charts are hosted at https://grafana.com/grafana/dashboards/{id}
 #       top-line:
@@ -736,10 +739,10 @@ dashboardProviders:
 #         gnetId: 15488
 #         revision: 3
 #         datasource: prometheus
-  # default:
-  #   node-monitoring:
-  #     file: dashboards/node-dashboard_rev2.json
-  #     datasource: prometheus
+  default:
+    node-monitoring:
+      file: dashboards/node-dashboard_rev2.json
+      datasource: prometheus
 
   #   local-dashboard:
   #     url: https://example.com/repository/test.json
