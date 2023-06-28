@@ -255,7 +255,7 @@ proxyInit:
   # @default -- false
   privileged: false
   # -- Allow overriding the runAsNonRoot behaviour (<https://github.com/linkerd/linkerd2/issues/7308>)
-  runAsRoot: false
+  runAsRoot: true
   # -- This value is used only if runAsRoot is false; otherwise runAsUser will be 0
   runAsUser: 65534
   xtMountPath:
