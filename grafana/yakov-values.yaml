@@ -540,7 +540,7 @@ datasources:
  datasources.yaml:
    apiVersion: 1
    datasources:
-   - name: prometheus
+   - name: DS_PROMETHEUS
      type: prometheus
      url: http://prometheus-server.monitoring.svc.cluster.local:80
      isDefault: true
