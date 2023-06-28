@@ -147,12 +147,12 @@ downloadDashboardsImage:
   tag: 7.85.0
   sha: ""
   pullPolicy: IfNotPresent
-  env:  
-   DS_PROMETHEUS: prometheus
+  
   
 
 downloadDashboards:
-  env: {}
+  env:  
+   DS_PROMETHEUS: prometheus
   envFromSecret: ""
   resources: {}
   securityContext: {}
