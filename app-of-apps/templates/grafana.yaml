@@ -20,7 +20,7 @@ spec:
         - yakov-values.yaml
   destination:
     server: 'https://kubernetes.default.svc'
-    namespace: monitoring
+    namespace: linkerd-viz
   {{- if .Values.grafana.syncPolicy.enable }}
   syncPolicy:
     automated:
