@@ -540,7 +540,7 @@ datasources:
    datasources:
    - name: prometheus
      type: prometheus
-     url: http://prometheus.monitoring.svc.cluster.local:80
+     url: http://prometheus-server.monitoring.svc.cluster.local:80
      isDefault: true
      jsonData:
       timeInterval: "5s"
