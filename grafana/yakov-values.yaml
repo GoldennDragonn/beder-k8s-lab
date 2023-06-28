@@ -792,7 +792,7 @@ grafana.ini:
 ## grafana Authentication can be enabled with the following values on grafana.ini
     root_url: '%(protocol)s://%(domain)s:/grafana/'
   auth:
-    disable_login_form: true
+    disable_login_form: false
   auth.anonymous:
     enabled: true
     org_role: Editor
@@ -801,7 +801,7 @@ grafana.ini:
   analytics:
     check_for_updates: false
   panels:
-    disable_sanitize_html: true
+    disable_sanitize_html: false
   log:
     mode: console
   log.console:
