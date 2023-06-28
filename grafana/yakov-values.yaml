@@ -540,14 +540,14 @@ datasources:
  datasources.yaml:
    apiVersion: 1
    datasources:
-   - name: DS_PROMETHEUS
+   - name: prometheus
      type: prometheus
      url: http://prometheus-server.monitoring.svc.cluster.local:80
      isDefault: true
      jsonData:
       timeInterval: "5s"
       editable: true
-      uid: prometheus-yakov
+      # uid: prometheus-yakov
 #    - name: CloudWatch
 #      type: cloudwatch
 #      access: proxy
@@ -665,12 +665,11 @@ dashboardProviders:
 ## dashboards per provider, use provider name as key.
 ##
 dashboards: 
-#     default:
-#     # all these charts are hosted at https://grafana.com/grafana/dashboards/{id}
-#       top-line:
-#         gnetId: 15474
-#         revision: 4
-#         datasource: prometheus
+    default:
+    # all these charts are hosted at https://grafana.com/grafana/dashboards/{id}
+      top-line:
+        gnetId: 721
+        datasource: prometheus
 #       health:
 #         gnetId: 15486
 #         revision: 3
@@ -739,10 +738,10 @@ dashboards:
 #         gnetId: 15488
 #         revision: 3
 #         datasource: prometheus
-  default:
-    node-monitoring:
-      file: dashboards/node-dashboard_rev2.json
-      datasource: prometheus
+  # default:
+  #   node-monitoring:
+  #     file: dashboards/node-dashboard_rev2.json
+  #     datasource: prometheus
 
   #   local-dashboard:
   #     url: https://example.com/repository/test.json
