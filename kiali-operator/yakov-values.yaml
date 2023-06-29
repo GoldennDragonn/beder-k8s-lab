@@ -115,5 +115,18 @@ cr:
       grafana:
         enabled: true
         in_cluster_url: 'http://grafana.monitoring:3000'
+        dashboards:
+        - name: "Istio Service Dashboard"
+          variables:
+            namespace: "var-namespace"
+            service: "var-service"
+        - name: "Istio Workload Dashboard"
+          variables:
+            namespace: "var-namespace"
+            workload: "var-workload"
+        - name: "Istio Mesh Dashboard"
+        - name: "Istio Control Plane Dashboard"
+        - name: "Istio Performance Dashboard"
+        - name: "Istio Wasm Extension Dashboard"
     auth:
       strategy: anonymous
