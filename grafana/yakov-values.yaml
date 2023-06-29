@@ -544,7 +544,7 @@ datasources:
      url: http://prometheus-server.monitoring.svc.cluster.local:80
      isDefault: true
      jsonData:
-      timeInterval: "5s"
+      timeInterval: "10s"
       editable: true
       # uid: prometheus-yakov
 #    - name: CloudWatch
