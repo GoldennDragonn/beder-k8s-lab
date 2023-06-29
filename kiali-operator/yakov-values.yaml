@@ -111,7 +111,7 @@ cr:
       - '**'
     external_services:
       prometheus:
-        url: "http://prometheus-server.monitoring:9090"
+        url: "http://prometheus-server.monitoring"
       grafana:
         enabled: true
         in_cluster_url: 'http://grafana.monitoring:3000'
