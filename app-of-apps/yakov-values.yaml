@@ -27,7 +27,7 @@ spec:
         factor: 2
 
 grafana:
-  enabled: true
+  enabled: false
   syncWave: "6"
   syncPolicy:
     enable: true
@@ -38,7 +38,7 @@ grafana:
       enable: false
 
 prometheus:
-  enabled: true
+  enabled: false
   syncWave: "5"
   syncPolicy:
     enable: true
