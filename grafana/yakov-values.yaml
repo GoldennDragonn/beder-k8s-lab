@@ -787,7 +787,8 @@ dashboardProviders:
 ##
 dashboardsConfigMaps: 
 #  default: ""
-  default: "grafana-dashboards"
+  istio: istio-grafana-dashboards
+  istio-services: istio-services-grafana-dashboards
 
 ## Grafana's primary configuration
 ## NOTE: values in map will be converted to ini format
