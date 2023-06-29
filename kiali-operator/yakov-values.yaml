@@ -110,6 +110,8 @@ cr:
       accessible_namespaces:
       - '**'
     external_services:
+      istio:
+        root_namespace: istio-system
       prometheus:
         url: "http://prometheus-server.monitoring:80"
       grafana:
