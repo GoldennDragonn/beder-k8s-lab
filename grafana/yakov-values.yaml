@@ -785,10 +785,10 @@ dashboardProviders:
 ##   example-dashboard.json: |
 ##     RAW_JSON
 ##
-dashboardsConfigMaps: 
+dashboardsConfigMaps: {}
 #  default: ""
-  istio: istio-grafana-dashboards
-  istio-services: istio-services-grafana-dashboards
+  # istio: istio-grafana-dashboards
+  # istio-services: istio-services-grafana-dashboards
 
 ## Grafana's primary configuration
 ## NOTE: values in map will be converted to ini format
