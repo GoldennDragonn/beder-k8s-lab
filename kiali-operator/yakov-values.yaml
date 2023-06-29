@@ -114,7 +114,7 @@ cr:
         url: "http://prometheus-server.monitoring:80"
       grafana:
         enabled: true
-        in_cluster_url: 'http://grafana.monitoring:80'
+        in_cluster_url: 'http://grafana.monitoring:3000'
         dashboards:
         - name: "Istio Service Dashboard"
           variables:
