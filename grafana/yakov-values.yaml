@@ -179,7 +179,7 @@ gossipPortName: gossip
 service:
   enabled: true
   type: ClusterIP
-  port: 3000
+  port: 80
   targetPort: 3000
     # targetPort: 4181 To be used with a proxy extraContainer
   ## Service annotations. Can be templated.
@@ -648,31 +648,14 @@ dashboardProviders:
  dashboardproviders.yaml:
    apiVersion: 1
    providers:
-    - disableDeletion: false
-      folder: istio
-      name: istio
-      options:
-        path: /var/lib/grafana/dashboards/istio
-      orgId: 1
-      type: file
-    - disableDeletion: false
-      folder: istio
-      name: istio-services
-      options:
-        path: /var/lib/grafana/dashboards/istio-services
-      orgId: 1
-      type: file
-   
-  #  providers:
-  #  - name: 'default'
-  #    orgId: 1
-  #    folder: ''
-  #    type: file
-  #    disableDeletion: false
-  #    editable: true
-  #    options:
-  #      path: /var/lib/grafana/dashboards/default
-  
+   - name: 'default'
+     orgId: 1
+     folder: ''
+     type: file
+     disableDeletion: false
+     editable: true
+     options:
+       path: /var/lib/grafana/dashboards/default
 
 ## Configure grafana dashboard to import
 ## NOTE: To use dashboards you must also enable/configure dashboardProviders
@@ -785,10 +768,9 @@ dashboardProviders:
 ##   example-dashboard.json: |
 ##     RAW_JSON
 ##
-dashboardsConfigMaps: {}
+dashboardsConfigMaps: 
 #  default: ""
-  # istio: istio-grafana-dashboards
-  # istio-services: istio-services-grafana-dashboards
+  default: "grafana-dashboards"
 
 ## Grafana's primary configuration
 ## NOTE: values in map will be converted to ini format
@@ -813,11 +795,11 @@ grafana.ini:
     # root_url: 'http://grafana.monitoring:3000'
   # auth:
   #   disable_login_form: true
-  auth.anonymous:
-    enabled: true
-    org_role: Admin
-  auth.basic:
-    enabled: false
+  # auth.anonymous:
+  #   enabled: true
+  #   org_role: Editor
+  # auth.basic:
+  #   enabled: false
   # analytics:
   #   check_for_updates: false
   # panels:
