@@ -7,3 +7,14 @@ service:
       service.beta.kubernetes.io/aws-load-balancer-connection-idle-timeout: "3600"
     enableHttps: true
     type: LoadBalancer
+
+metrics:
+    enabled: true
+    serviceMonitor:
+      enabled: true
+      additionalLabels:
+        release: "prometheus"
+podAnnotations:
+  prometheus.io/scrape: "true"
+  prometheus.io/port: "10254"
+  prometheus.io/path: "/metrics"

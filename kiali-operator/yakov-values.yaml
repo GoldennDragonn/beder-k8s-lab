@@ -109,26 +109,23 @@ cr:
     deployment:
       accessible_namespaces:
       - '**'
+    ingress:
+    enabled: true
+    class_name: nginx
     external_services:
-      istio:
-        root_namespace: istio-system
       prometheus:
-        url: "http://prometheus-server.monitoring:80"
+        url: http://kube-prometheus-stack-prometheus.istio-system:9090/prometheus
+        health_check_url: http://kube-prometheus-stack-prometheus.istio-system:9090/prometheus/-/healthy
+      # tracing:
+      #   enabled: true
+      #   in_cluster_url: http://jaeger-simple-query.istio-system:16686/jaeger
+      #   # TODO : change this to nginx ingress controller IP
+      #   # url: http://34.101.218.38/jaeger
+      #   use_grpc: false
       grafana:
         enabled: true
-        in_cluster_url: 'http://grafana.monitoring:3000'
-        dashboards:
-        - name: "Istio Service Dashboard"
-          variables:
-            namespace: "var-namespace"
-            service: "var-service"
-        - name: "Istio Workload Dashboard"
-          variables:
-            namespace: "var-namespace"
-            workload: "var-workload"
-        - name: "Istio Mesh Dashboard"
-        - name: "Istio Control Plane Dashboard"
-        - name: "Istio Performance Dashboard"
-        - name: "Istio Wasm Extension Dashboard"
+        in_cluster_url: http://kube-prometheus-stack-grafana.istio-system/grafana
+        # TODO : change this to nginx ingress controller IP
+        url: http://kube-stack.beder.co.il/grafana
     auth:
       strategy: anonymous
