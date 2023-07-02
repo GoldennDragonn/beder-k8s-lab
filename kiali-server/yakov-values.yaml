@@ -3,7 +3,7 @@ auth:
 
 deployment:
   ingress:
-    # enabled: true
+    enabled: true
     # class_name: nginx
     override_yaml:
       metadata:
