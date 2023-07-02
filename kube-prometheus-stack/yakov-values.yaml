@@ -873,7 +873,7 @@ grafana:
     server:
       domain: kube-stack.beder.co.il
       #root_url: "%(protocol)s://%(domain)s/"
-      root_url: https://kube-stack.beder.co.ilgrafana/
+      root_url: https://kube-stack.beder.co.il/grafana/
       serve_from_sub_path: true
 
   ingress:
