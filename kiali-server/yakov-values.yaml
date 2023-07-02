@@ -4,12 +4,13 @@ auth:
 deployment:
   ingress:
     enabled: true
-    class_name: nginx
+    # class_name: nginx
     override_yaml:
           # metadata:
           #   annotations:
           #     nginx.ingress.kubernetes.io/secure-backends: "true"
           #     nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
+      ingressClassName: "nginx"    
       spec:
         rules:
         - http:
