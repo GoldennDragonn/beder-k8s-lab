@@ -227,9 +227,9 @@ ingress:
   # See https://kubernetes.io/blog/2020/04/02/improvements-to-the-ingress-api-in-kubernetes-1.18/#specifying-the-class-of-an-ingress
   ingressClassName: nginx
   # Values can be templated
-  annotations: 
-    kubernetes.io/ingress.class: nginx
-    ingress.kubernetes.io/rewrite-target: /
+  # annotations: 
+  #   kubernetes.io/ingress.class: nginx
+  #   ingress.kubernetes.io/rewrite-target: /
     # kubernetes.io/tls-acme: "true"
   labels: {}
   path: /grafana

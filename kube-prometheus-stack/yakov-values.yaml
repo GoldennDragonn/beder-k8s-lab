@@ -3680,8 +3680,8 @@ thanosRuler:
     # See https://kubernetes.io/blog/2020/04/02/improvements-to-the-ingress-api-in-kubernetes-1.18/#specifying-the-class-of-an-ingress
     ingressClassName: nginx
 
-    annotations: 
-      ingress.kubernetes.io/rewrite-target: /
+    # annotations: 
+    #   ingress.kubernetes.io/rewrite-target: /
 
     labels: {}
 
@@ -3698,6 +3698,7 @@ thanosRuler:
     ## For Kubernetes >= 1.18 you should specify the pathType (determines how Ingress paths should be matched)
     ## See https://kubernetes.io/blog/2020/04/02/improvements-to-the-ingress-api-in-kubernetes-1.18/#better-path-matching-with-path-types
     # pathType: ImplementationSpecific
+    pathType: Prefix
 
     ## TLS configuration for ThanosRuler Ingress
     ## Secret must be manually created in the namespace
