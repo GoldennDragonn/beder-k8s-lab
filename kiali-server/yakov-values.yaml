@@ -15,6 +15,7 @@ deployment:
             - http:
                 paths:
                 - path: /kiali
+                  pathType: Prefix
                   backend:
                     serviceName: kiali
                     servicePort: 20001
