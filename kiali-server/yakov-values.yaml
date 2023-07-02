@@ -10,16 +10,16 @@ deployment:
           #   annotations:
           #     nginx.ingress.kubernetes.io/secure-backends: "true"
           #     nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
-    spec:
-      rules:
-      - http:
-          paths:
-          - path: /kiali
-            pathType: Prefix
-            backend:
-              serviceName: kiali
-              servicePort: 20001
-      host: kube-stack.beder.co.il
+      spec:
+        rules:
+        - http:
+            paths:
+            - path: /kiali
+              pathType: Prefix
+              backend:
+                serviceName: kiali
+                servicePort: 20001
+          host: kube-stack.beder.co.il
   resources:
     limits:
       cpu: "0.5"
