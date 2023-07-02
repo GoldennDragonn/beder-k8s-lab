@@ -18,8 +18,7 @@ deployment:
                 backend:
                   serviceName: kiali
                   servicePort: 20001
-            host: 
-              - kube-stack.beder.co.il
+            host: kube-stack.beder.co.il
   resources:
     limits:
       cpu: "0.5"
