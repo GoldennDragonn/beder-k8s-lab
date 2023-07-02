@@ -13,7 +13,7 @@ deployment:
             ingress.kubernetes.io/rewrite-target: /
       # spec:
       rules:
-      - host: kube-stack.beder.co.il
+      # - host: kube-stack.beder.co.il
         http:
           paths:
           - path: /kiali
@@ -25,7 +25,7 @@ deployment:
                   number: 20001
               # serviceName: kiali
               # servicePort: 20001
-        # host: kube-stack.beder.co.il
+    host: kube-stack.beder.co.il
   resources:
     limits:
       cpu: "0.5"
