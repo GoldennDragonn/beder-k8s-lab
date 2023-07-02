@@ -227,9 +227,9 @@ ingress:
   # See https://kubernetes.io/blog/2020/04/02/improvements-to-the-ingress-api-in-kubernetes-1.18/#specifying-the-class-of-an-ingress
   ingressClassName: nginx
   # Values can be templated
-  # annotations: 
+  annotations: 
   #   kubernetes.io/ingress.class: nginx
-  #   ingress.kubernetes.io/rewrite-target: /
+    nginx.ingress.kubernetes.io/rewrite-target: /
     # kubernetes.io/tls-acme: "true"
   labels: {}
   path: /grafana
@@ -733,7 +733,7 @@ grafana.ini:
 ## grafana Authentication can be enabled with the following values on grafana.ini
  # server:
       # The full public facing url you use in browser, used for redirects and emails
-    root_url: "%(protocol)s://%(domain)s:%(http_port)s"
+    root_url: "%(protocol)s://%(domain)s:%(http_port)s/grafana"
     serve_from_sub_path: true
  # https://grafana.com/docs/grafana/latest/auth/github/#enable-github-in-grafana
  # auth.github:

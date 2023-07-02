@@ -3680,8 +3680,8 @@ thanosRuler:
     # See https://kubernetes.io/blog/2020/04/02/improvements-to-the-ingress-api-in-kubernetes-1.18/#specifying-the-class-of-an-ingress
     ingressClassName: nginx
 
-    # annotations: 
-    #   ingress.kubernetes.io/rewrite-target: /
+    annotations: 
+      nginx.ingress.kubernetes.io/rewrite-target: /
 
     labels: {}
 
