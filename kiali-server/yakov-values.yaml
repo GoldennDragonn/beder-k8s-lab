@@ -15,9 +15,14 @@ deployment:
         - http:
             paths:
             - path: /kiali
+              pathType: Prefix
               backend:
-                serviceName: kiali
-                servicePort: 20001
+                service:
+                  name: kiali
+                  port: 
+                    number: 20001
+                # serviceName: kiali
+                # servicePort: 20001
           host: kube-stack.beder.co.il
   resources:
     limits:
