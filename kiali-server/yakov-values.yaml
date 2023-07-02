@@ -4,7 +4,7 @@ auth:
 deployment:
   ingress:
     enabled: true
-    class_name: nginx
+    class_name: "nginx"
     override_yaml:
       metadata:
         annotations:
