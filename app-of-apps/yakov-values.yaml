@@ -54,7 +54,7 @@ kubePrometheusStack:
   enabled: true
   syncWave: "5"
   syncPolicy:
-    enable: true
+    enable: false
     automated:
       prune: true
       selfHeal: true
