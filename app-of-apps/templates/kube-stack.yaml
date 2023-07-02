@@ -1,0 +1,36 @@
+{{- if .Values.mongoExpress.enabled }}
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: kube-prometheus-stack
+  namespace: default
+  finalizers:
+  - resources-finalizer.argocd.argoproj.io
+  annotations:
+    argocd.argoproj.io/sync-wave: "{{ .Values.kubePrometheusStack.syncWave }}"
+
+spec:
+  project: default
+  source:
+    repoURL: 'https://gitlab.com/yakovbwork/beder-k8s.git'
+    path: kube-prometheus-stack
+    targetRevision: main
+    helm:
+      valueFiles:
+        - yakov-values.yaml
+  destination:
+    server: 'https://kubernetes.default.svc'
+    namespace: istio-system
+   {{- if  .Values.kubePrometheusStack.syncPolicy.enable }}
+  syncPolicy:
+    automated:
+      prune: {{ .Values.kubePrometheusStack.syncPolicy.automated.prune }}
+      selfHeal: {{ .Values.kubePrometheusStack.syncPolicy.automated.selfHeal }}
+  {{- end }}
+    {{- if .Values.kubePrometheusStack.syncOptions.enable }}
+    syncOptions:
+      {{- range .Values.kubePrometheusStack.syncOptions.options }}
+      - {{ . }}
+      {{- end }}
+    {{- end }}
+{{- end }}

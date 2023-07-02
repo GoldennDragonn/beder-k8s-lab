@@ -50,6 +50,19 @@ prometheus:
     options:
       - CreateNamespace=true
 
+kubePrometheusStack:
+  enabled: true
+  syncWave: "5"
+  syncPolicy:
+    enable: true
+    automated:
+      prune: true
+      selfHeal: true
+  syncOptions:
+    enable: true
+    options:
+      - CreateNamespace=true
+
       
 kafdrop:
   enabled: true
