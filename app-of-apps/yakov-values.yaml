@@ -54,14 +54,14 @@ kubePrometheusStack:
   enabled: true
   syncWave: "5"
   syncPolicy:
-    enable: false
+    enable: true
     automated:
       prune: true
       selfHeal: true
   syncOptions:
     enable: true
     options:
-      - CreateNamespace=true
+      - ServerSideApply=true
 
       
 kafdrop:
