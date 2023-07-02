@@ -4,33 +4,11 @@ auth:
 deployment:
   ingress:
     enabled: true
-    class_name: "nginx"
-    override_yaml:
-      metadata:
-        annotations:
-      #     nginx.ingress.kubernetes.io/secure-backends: "true"
-      #     nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
-            ingress.kubernetes.io/rewrite-target: /
-      spec:
-        rules:
-        - http:
-            paths:
-            # - path: /
-            - path: /kiali
-              pathType: Prefix
-              backend:
-                service:
-                  name: kiali
-                  port: 
-                    number: 20001
-                # serviceName: kiali
-                # servicePort: 20001
-          host: kube-stack.beder.co.il
+    class_name: nginx
   resources:
     limits:
       cpu: "0.5"
       memory: 512Mi
-  
 
 external_services:
   prometheus:
