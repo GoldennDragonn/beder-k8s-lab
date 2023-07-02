@@ -11,21 +11,21 @@ deployment:
       #     nginx.ingress.kubernetes.io/secure-backends: "true"
       #     nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
             ingress.kubernetes.io/rewrite-target: /
-      # spec:
-      rules:
-      # - host: kube-stack.beder.co.il
-        http:
-          paths:
-          - path: /kiali
-            pathType: Prefix
-            backend:
-              service:
-                name: kiali
-                port: 
-                  number: 20001
-              # serviceName: kiali
-              # servicePort: 20001
-  host: kube-stack.beder.co.il
+      spec:
+        rules:
+        # - host: kube-stack.beder.co.il
+          http:
+            paths:
+            - path: /kiali
+              pathType: Prefix
+              backend:
+                service:
+                  name: kiali
+                  port: 
+                    number: 20001
+                # serviceName: kiali
+                # servicePort: 20001
+      host: kube-stack.beder.co.il
   resources:
     limits:
       cpu: "0.5"
