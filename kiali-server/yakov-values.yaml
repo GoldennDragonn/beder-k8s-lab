@@ -6,10 +6,11 @@ deployment:
     enabled: true
     class_name: nginx
     override_yaml:
-          # metadata:
-          #   annotations:
-          #     nginx.ingress.kubernetes.io/secure-backends: "true"
-          #     nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
+      metadata:
+        annotations:
+      #     nginx.ingress.kubernetes.io/secure-backends: "true"
+      #     nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
+            ingress.kubernetes.io/rewrite-target: /
       spec:
         rules:
         - http:
