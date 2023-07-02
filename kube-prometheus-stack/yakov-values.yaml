@@ -872,18 +872,19 @@ grafana:
   ingress:
     ## If true, Grafana Ingress will be created
     ##
-    enabled: false
+    enabled: true
 
     ## IngressClassName for Grafana Ingress.
     ## Should be provided if Ingress is enable.
     ##
-    # ingressClassName: nginx
+    ingressClassName: nginx
 
     ## Annotations for Grafana Ingress
     ##
-    annotations: {}
+    annotations: 
       # kubernetes.io/ingress.class: nginx
       # kubernetes.io/tls-acme: "true"
+      ingress.kubernetes.io/rewrite-target: /
 
     ## Labels to be added to the Ingress
     ##
@@ -894,10 +895,11 @@ grafana:
     ##
     # hosts:
     #   - grafana.domain.com
-    hosts: []
+    hosts: 
+      - kube-stack.beder.co.il
 
     ## Path for grafana ingress
-    path: /
+    path: /grafana
 
     ## TLS configuration for grafana Ingress
     ## Secret must be manually created in the namespace
@@ -2649,13 +2651,15 @@ prometheus:
   #     someoneelse:$apr1$DMZX2Z4q$6SbQIfyuLQd.xmo/P0m2c.
 
   ingress:
-    enabled: false
+    enabled: true
 
     # For Kubernetes >= 1.18 you should specify the ingress-controller via the field ingressClassName
     # See https://kubernetes.io/blog/2020/04/02/improvements-to-the-ingress-api-in-kubernetes-1.18/#specifying-the-class-of-an-ingress
-    # ingressClassName: nginx
+    ingressClassName: nginx
 
-    annotations: {}
+    annotations: 
+      ingress.kubernetes.io/rewrite-target: /
+
     labels: {}
 
     ## Redirect ingress to an additional defined port on the service
@@ -2666,12 +2670,13 @@ prometheus:
     ##
     # hosts:
     #   - prometheus.domain.com
-    hosts: []
+    hosts: 
+      - kube-stack.beder.co.il
 
     ## Paths to use for ingress rules - one path should match the prometheusSpec.routePrefix
     ##
-    paths: []
-    # - /
+    paths: 
+    - /prometheus
 
     ## For Kubernetes >= 1.18 you should specify the pathType (determines how Ingress paths should be matched)
     ## See https://kubernetes.io/blog/2020/04/02/improvements-to-the-ingress-api-in-kubernetes-1.18/#better-path-matching-with-path-types
@@ -3113,7 +3118,7 @@ prometheus:
     ## Prefix used to register routes, overriding externalUrl route.
     ## Useful for proxies that rewrite URLs.
     ##
-    routePrefix: /
+    routePrefix: /prometheus
 
     ## Standard object's metadata. More info: https://github.com/kubernetes/community/blob/master/contributors/devel/sig-architecture/api-conventions.md#metadata
     ## Metadata Labels and Annotations gets propagated to the prometheus pods.
@@ -3674,31 +3679,31 @@ thanosRuler:
     maxUnavailable: ""
 
   ingress:
-    enabled: true
+    enabled: false
 
     # For Kubernetes >= 1.18 you should specify the ingress-controller via the field ingressClassName
     # See https://kubernetes.io/blog/2020/04/02/improvements-to-the-ingress-api-in-kubernetes-1.18/#specifying-the-class-of-an-ingress
-    ingressClassName: nginx
+    # ingressClassName: nginx
 
-    annotations: 
-      nginx.ingress.kubernetes.io/rewrite-target: /
+    # annotations: 
+    #   nginx.ingress.kubernetes.io/rewrite-target: /
 
     labels: {}
 
     ## Hosts must be provided if Ingress is enabled.
     ##
-    hosts: 
-      - kube-stack.beder.co.il
+    # hosts: 
+    #   - kube-stack.beder.co.il
 
     ## Paths to use for ingress rules - one path should match the thanosruler.routePrefix
     ##
-    paths: 
-    - /prometheus
+    # paths: 
+    # - /prometheus
 
     ## For Kubernetes >= 1.18 you should specify the pathType (determines how Ingress paths should be matched)
     ## See https://kubernetes.io/blog/2020/04/02/improvements-to-the-ingress-api-in-kubernetes-1.18/#better-path-matching-with-path-types
     # pathType: ImplementationSpecific
-    pathType: Prefix
+    # pathType: Prefix
 
     ## TLS configuration for ThanosRuler Ingress
     ## Secret must be manually created in the namespace
@@ -3914,7 +3919,7 @@ thanosRuler:
     ## The route prefix ThanosRuler registers HTTP handlers for. This is useful, if using ExternalURL and a proxy is rewriting HTTP routes of a request, and the actual ExternalURL is still true,
     ## but the server serves requests under a different route prefix. For example for use with kubectl proxy.
     ##
-    routePrefix: /prometheus
+    routePrefix: /
 
     ## ObjectStorageConfig configures object storage in Thanos. Alternative to
     ## ObjectStorageConfigFile, and lower order priority.
