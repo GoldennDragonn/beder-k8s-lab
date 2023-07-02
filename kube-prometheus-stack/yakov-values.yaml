@@ -3460,22 +3460,22 @@ prometheus:
     # metadata:
     - name: istio-component-monitor
     # - namespace: istio-system
-      spec: 
-        jobLabel: istio
-        targetLabels:
-          - app
-        namespaceSelector:
-          matchNames:
-            - istio-system
-        selector:
-          matchExpressions:
-            - key: istio
-              operator: In
-              values:
-                - pilot
-        endpoints:
-          - port: http-monitoring
-            interval: 15s
+      # spec: 
+      jobLabel: istio
+      targetLabels:
+        - app
+      namespaceSelector:
+        matchNames:
+          - istio-system
+      selector:
+        matchExpressions:
+          - key: istio
+            operator: In
+            values:
+              - pilot
+      endpoints:
+        - port: http-monitoring
+          interval: 15s
   ## Name of the ServiceMonitor to create
   ##
   # - name: ""
