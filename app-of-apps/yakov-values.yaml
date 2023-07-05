@@ -65,7 +65,7 @@ kubePrometheusStack:
 
       
 kafdrop:
-  enabled: true
+  enabled: false
   syncWave: "4"
   syncPolicy:
     enable: true
@@ -77,7 +77,7 @@ kafdrop:
     
 
 kafka:
-  enabled: true
+  enabled: false
   syncWave: "3"
   syncPolicy:
     enable: true
@@ -90,7 +90,7 @@ kafka:
       - CreateNamespace=true
 
 mongoExpress:
-  enabled: true
+  enabled: false
   syncWave: "2"
   syncPolicy:
     enable: true
@@ -101,7 +101,7 @@ mongoExpress:
     enable: true
 
 mongodbSharded:
-  enabled: true
+  enabled: false
   syncWave: "1"
   syncPolicy:
     enable: false
