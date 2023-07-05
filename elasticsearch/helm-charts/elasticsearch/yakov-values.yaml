@@ -34,13 +34,13 @@ imagePullPolicy: "IfNotPresent"
 
 esJavaOpts: "" # example: "-Xmx1g -Xms1g"
 
-# resources:
-#   requests:
-#     cpu: "512m"
-#     memory: "512Mi"
-#   limits:
-#     cpu: "512m"
-#     memory: "512Mi"
+resources:
+  requests:
+    cpu: "100m"
+    memory: "128Mi"
+  limits:
+    cpu: "100m"
+    memory: "128Mi"
 
 networkHost: "0.0.0.0"
 
