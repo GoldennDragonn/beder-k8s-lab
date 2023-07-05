@@ -64,19 +64,19 @@ allInOne:
 storage:
   # allowed values (cassandra, elasticsearch)
   type: elasticsearch
-  # cassandra:
-  #   host: cassandra
-  #   port: 9042
-  #   # Change this value to false if you want to avoid starting the
-  #   # -cassandra-schema Job
-  #   schemaJobEnabled: false
-  #   tls:
-  #     enabled: false
-  #     secretName: cassandra-tls-secret
-  #   user: user
-  #   usePassword: true
-  #   password: password
-  #   keyspace: jaeger_v1_test
+  cassandra:
+    host: cassandra
+    port: 9042
+    # Change this value to false if you want to avoid starting the
+    # -cassandra-schema Job
+    schemaJobEnabled: false
+    tls:
+      enabled: false
+      secretName: cassandra-tls-secret
+    user: user
+    usePassword: true
+    password: password
+    keyspace: jaeger_v1_test
   #   ## Use existing secret (ignores previous password)
   #   # existingSecret:
   #   ## Cassandra related env vars to be configured on the concerned components
