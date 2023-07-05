@@ -97,7 +97,7 @@ storage:
   #     # cassandra.tls.enabled: "false"
   elasticsearch:
     scheme: http
-    host: elasticsearch-master.default.svc
+    host: elasticsearch-master.observability.svc
     port: 9200
     anonymous: false
     user: elastic
