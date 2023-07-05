@@ -9,23 +9,6 @@ spec:
   ports:
     - port: 9411
       targetPort: 9411
-      name: http-zipkin
-    - port: 14250
-      targetPort: 14250
-      name: grpc-http
-    - port: 14267
-      targetPort: 14267
-      name: http-c-tchan-trft
-    - port: 14268
-      targetPort: 14268
-      name: http-c-binary-trft
-    - port: 4317
-      targetPort: 4317
-      name: otlp-grpc
-    - port: 4318
-      targetPort: 4318
-      name: otlp-http
+      name: http-query
   selector:
     app: jaeger
-    app.kubernetes.io/instance: jaeger
-    app.kubernetes.io/name: jaeger
