@@ -114,15 +114,15 @@ storage:
       - name: ES_CREATE_INDEX_TEMPLATES
         value: "false"
     ## ES related env vars to be configured on the concerned components
-      - name: ES_SERVER_URLS
-        value: http://elasticsearch-master.observability:9200
+      # - name: ES_SERVER_URLS
+      #   value: http://elasticsearch-master.observability:9200
       # - name: ES_USERNAME
       #   value: elastic
       # - name: ES_INDEX_PREFIX
       #   value: test
     ## ES related cmd line opts to be configured on the concerned components
-    cmdlineParams: {}
-      # es.server-urls: http://elasticsearch-master:9200
+    cmdlineParams: 
+      es.server-urls: http://elasticsearch-master.observability:9200
       # es.username: elastic
       # es.index-prefix: test
     tls:
@@ -370,15 +370,15 @@ collector:
       port: 14268
       # nodePort:
     # can accept Zipkin spans in JSON or Thrift
-    zipkin: {}
-      # port: 9411
+    zipkin:
+      port: 9411
       # nodePort:
     otlp:
-      grpc: {}
-        # port: 4317
+      grpc: 
+        port: 4317
         # nodePort:
-      http: {}
-        # port: 4318
+      http: 
+        port: 4318
         # nodePort:
   ingress:
     enabled: false
@@ -492,7 +492,7 @@ collector:
 
 query:
   enabled: true
-  basePath: /
+  basePath: /jaeger
   oAuthSidecar:
     enabled: false
     image: quay.io/oauth2-proxy/oauth2-proxy:v7.1.0
