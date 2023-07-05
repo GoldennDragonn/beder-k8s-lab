@@ -7,7 +7,7 @@ roles:
   - data
   - ingest
 
-replicas: 1
+replicas: 2
 minimumMasterNodes: 2
 
 esMajorVersion: "8"
@@ -36,11 +36,11 @@ esJavaOpts: "" # example: "-Xmx1g -Xms1g"
 
 resources:
   requests:
-    cpu: "100m"
-    memory: "128Mi"
+    cpu: "512m"
+    memory: "1024Mi"
   limits:
-    cpu: "200m"
-    memory: "128Mi"
+    cpu: "512m"
+    memory: "1024Mi"
 
 networkHost: "0.0.0.0"
 
