@@ -3,7 +3,7 @@
 # Jaeger values are grouped by component. Cassandra values override subchart values
 
 provisionDataStore:
-  cassandra: true
+  cassandra: false
   elasticsearch: false
   kafka: false
 
