@@ -90,7 +90,7 @@ kafka:
       - CreateNamespace=true
 
 mongoExpress:
-  enabled: false
+  enabled: true
   syncWave: "2"
   syncPolicy:
     enable: true
@@ -101,7 +101,7 @@ mongoExpress:
     enable: true
 
 mongodbSharded:
-  enabled: false
+  enabled: true
   syncWave: "1"
   syncPolicy:
     enable: false
