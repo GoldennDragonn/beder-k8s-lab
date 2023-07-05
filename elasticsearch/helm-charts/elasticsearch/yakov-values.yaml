@@ -7,8 +7,8 @@ roles:
   - data
   - ingest
 
-replicas: 2
-minimumMasterNodes: 2
+replicas: 1
+minimumMasterNodes: 1
 
 esMajorVersion: "8"
 
