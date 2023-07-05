@@ -370,15 +370,15 @@ collector:
       port: 14268
       # nodePort:
     # can accept Zipkin spans in JSON or Thrift
-    zipkin: {}
-      # port: 9411
+    zipkin:
+      port: 9411
       # nodePort:
     otlp:
-      grpc: {}
-        # port: 4317
+      grpc: 
+        port: 4317
         # nodePort:
-      http: {}
-        # port: 4318
+      http: 
+        port: 4318
         # nodePort:
   ingress:
     enabled: false
