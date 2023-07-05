@@ -8,7 +8,7 @@ spec:
   project: default
   source:
     repoURL: 'https://gitlab.com/yakovbwork/beder-k8s.git'
-    path: elasticserach/helm-charts/elasticsearch
+    path: elasticsearch/helm-charts/elasticsearch
     targetRevision: main
     helm:
       valueFiles:
