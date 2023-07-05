@@ -3,7 +3,7 @@
 # Jaeger values are grouped by component. Cassandra values override subchart values
 
 provisionDataStore:
-  cassandra: false
+  cassandra: true
   elasticsearch: false
   kafka: false
 
@@ -69,7 +69,7 @@ storage:
     port: 9042
     # Change this value to false if you want to avoid starting the
     # -cassandra-schema Job
-    schemaJobEnabled: true
+    schemaJobEnabled: false
     tls:
       enabled: false
       secretName: cassandra-tls-secret
