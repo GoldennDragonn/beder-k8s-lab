@@ -38,10 +38,10 @@ external_services:
     health_check_url: http://kube-prometheus-stack-prometheus.istio-system:9090/prometheus/-/healthy
   tracing:
     enabled: true
-    in_cluster_url: http://jaeger-query.istio-system:16685/jaeger
+    in_cluster_url: http://jaeger-query.istio-system:16686/jaeger
     # TODO : change this to nginx ingress controller IP
     # url: http://34.101.218.38/jaeger
-    use_grpc: true
+    use_grpc: false
   grafana:
     enabled: true
     in_cluster_url: http://kube-prometheus-stack-grafana.istio-system/grafana
