@@ -98,7 +98,7 @@ mongoExpress:
       prune: true
       selfHeal: true
   syncOptions:
-    enable: false
+    enable: true
 
 mongodbSharded:
   enabled: false
@@ -106,7 +106,7 @@ mongodbSharded:
   syncPolicy:
     enable: false
   syncOptions:
-    enable: false
+    enable: true
     # options:
     #   - CreateNamespace=true
 
