@@ -41,7 +41,7 @@ external_services:
     in_cluster_url: http://jaeger-query.istio-system:16685/jaeger
     # TODO : change this to nginx ingress controller IP
     # url: http://34.101.218.38/jaeger
-    use_grpc: false
+    use_grpc: true
   grafana:
     enabled: true
     in_cluster_url: http://kube-prometheus-stack-grafana.istio-system/grafana
