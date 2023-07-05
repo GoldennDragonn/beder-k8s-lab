@@ -39,6 +39,7 @@ external_services:
   tracing:
     enabled: true
     in_cluster_url: http://jaeger-query.istio-system/jaeger
+    health_check_url: http://jaeger-query.istio-system/jaeger/-/healthy
     # TODO : change this to nginx ingress controller IP
     # url: http://34.101.218.38/jaeger
     use_grpc: false
