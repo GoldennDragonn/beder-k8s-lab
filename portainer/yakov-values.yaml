@@ -65,6 +65,11 @@ ingress:
     - host: portainer.beder.co.il
       paths: 
       - path: "/"
+      backend:
+          service:
+            name: portainer-service
+            port:
+              number: 80
   tls: []
 
 resources: {}
