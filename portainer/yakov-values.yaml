@@ -67,7 +67,7 @@ ingress:
       - path: "/"
       backend:
           service:
-            name: portainer-service
+            name: portainer
             port:
               number: 80
   tls: []
