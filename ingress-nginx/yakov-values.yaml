@@ -5,6 +5,10 @@ service:
     annotations:
       service.beta.kubernetes.io/aws-load-balancer-internal: "true"
       service.beta.kubernetes.io/aws-load-balancer-connection-idle-timeout: "3600"
+      service.beta.kubernetes.io/aws-load-balancer-ssl-cert: "arn:aws:acm:eu-west-1:126996264672:certificate/b17dde64-a6b2-4e90-b5eb-4ff9ff74e3b7"
+      # service.beta.kubernetes.io/aws-load-balancer-backend-protocol: "http"
+      # service.beta.kubernetes.io/aws-load-balancer-ssl-ports: "https"
+
     enableHttps: true
     type: LoadBalancer
 
