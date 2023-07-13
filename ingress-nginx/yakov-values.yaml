@@ -1,6 +1,16 @@
 # controller:
 #   kind: DaemonSet
 
+controller:
+  resources:
+    limits:
+      cpu: 200m
+      memory: 180Mi
+    requests:
+      cpu: 100m
+      memory: 90Mi
+
+
 service:
     annotations:
       service.beta.kubernetes.io/aws-load-balancer-internal: "true"
@@ -22,3 +32,4 @@ service:
 #   prometheus.io/scrape: "true"
 #   prometheus.io/port: "10254"
 #   prometheus.io/path: "/metrics"
+
