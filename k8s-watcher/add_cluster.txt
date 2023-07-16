@@ -1,0 +1,1 @@
+helm upgrade --install k8s-watcher ./k8s-watcher --set watcher.actions.basic=true --set watcher.actions.advanced=true --set watcher.actions.podExec=true --set metrics.enabled=true --set apiKey=9491f709-700a-4570-b17e-df2302d1b21f --set watcher.clusterName=aws  --wait --timeout=90s && start https://app.komodor.com/main/services
