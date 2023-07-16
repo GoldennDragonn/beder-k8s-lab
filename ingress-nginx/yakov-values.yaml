@@ -9,10 +9,10 @@ controller:
   #     if ( $server_port = 80 ) {
   #        return 308 https://$host$request_uri;
   #     }
-  # containerPort:
-  #   http: 80
-  #   https: 443
-  #   special: 8000
+  containerPort:
+    http: 80
+    https: 80
+    # special: 8000
 
   resources:
     limits:
@@ -35,9 +35,9 @@ service:
       # service.beta.kubernetes.io/aws-load-balancer-nlb-target-type: "instance"
       # service.beta.kubernetes.io/aws-load-balancer-scheme: "internet-facing"
       
-    targetPorts:
-      http: http
-      https: http
+    # targetPorts:
+    #   http: http
+    #   https: http
 
 # metrics:
 #     enabled: true
