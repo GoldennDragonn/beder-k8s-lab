@@ -20,19 +20,19 @@ server.basePath: "/kibana"
 ingress:
   enabled: true
   className: "nginx"
-  pathtype: ImplementationSpecific
+  # pathtype: ImplementationSpecific
   annotations:
-    nginx.ingress.kubernetes.io/enable-cors: "true"
-    nginx.ingress.kubernetes.io/cors-allow-methods: "PUT, GET, POST, OPTIONS"
-    nginx.ingress.kubernetes.io/cors-expose-headers: "x-api-version,x-response-time-ms,Access-Control-Allow-Credentials,Access-Control-Allow-Origin,kbn-xsrf,kbn-version,content-type"
-    nginx.ingress.kubernetes.io/cors-allow-origin: "http://93.173.78.215"
-    nginx.ingress.kubernetes.io/cors-allow-credentials: "true"
+    # nginx.ingress.kubernetes.io/enable-cors: "true"
+    # nginx.ingress.kubernetes.io/cors-allow-methods: "PUT, GET, POST, OPTIONS"
+    # nginx.ingress.kubernetes.io/cors-expose-headers: "x-api-version,x-response-time-ms,Access-Control-Allow-Credentials,Access-Control-Allow-Origin,kbn-xsrf,kbn-version,content-type"
+    # nginx.ingress.kubernetes.io/cors-allow-origin: "http://93.173.78.215"
+    # nginx.ingress.kubernetes.io/cors-allow-credentials: "true"
     nginx.ingress.kubernetes.io/rewrite-target: /$2
   hosts:
     - host: kube-stack.beder.co.il
       paths:
         - path: /kibana(/|$)(.*)
-          pathType: ImplementationSpecific
+          pathType: Prefix
           backend:
             service:
               name: kibana-kibana
