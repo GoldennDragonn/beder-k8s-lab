@@ -15,7 +15,7 @@ spec:
         - yakov-values.yaml
   destination:
     server: 'https://kubernetes.default.svc'
-    namespace: istio-system
+    namespace: observability
   syncPolicy:
     automated:
       prune: true
