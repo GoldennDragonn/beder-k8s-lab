@@ -8,7 +8,7 @@ spec:
   project: default
   source:
     repoURL: 'https://gitlab.com/yakovbwork/beder-k8s.git'
-    path: kibana/helm-charts/kibana
+    path: kibana
     targetRevision: main
     helm:
       valueFiles:

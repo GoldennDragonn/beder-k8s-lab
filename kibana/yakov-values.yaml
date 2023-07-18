@@ -22,9 +22,9 @@ ingress:
   hosts:
     - host: kube-stack.beder.co.il
       paths:
-        - backend:
-              service:
-                name: kibana-kibana
-                port:
-                  number: 5601
+        # - backend:
+        #       service:
+        #         name: kibana-kibana
+        #         port:
+        #           number: 5601
         - path: /kibana
