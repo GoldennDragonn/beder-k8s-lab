@@ -1,14 +1,14 @@
 ---
-elasticsearchHosts: "http://elasticsearch-master.default.svc:9200"
+elasticsearchHosts: "http://elasticsearch-master.observability.svc:9200"
 
 
 kibanaConfig:
   kibana.yml: |
     elasticsearch.username: "admin"
-    elasticsearch.password: "denisi21"
+    elasticsearch.password: "yakov123"
 
 ingress:
-  enabled: false
+  enabled: true
   className: "nginx"
   pathtype: ImplementationSpecific
   annotations:
@@ -20,11 +20,11 @@ ingress:
   # kubernetes.io/ingress.class: nginx
   # kubernetes.io/tls-acme: "true"
   hosts:
-    - host: kibana.swas.world
+    - host: kube-stack.beder.co.il
       paths:
         - backend:
               service:
                 name: kibana-kibana
                 port:
                   number: 5601
-        - path: /
+        - path: /kibana
