@@ -16,6 +16,8 @@ resources:
     memory: "2Gi"
 
 server.basePath: "/kibana"
+server.rewriteBasePath: true
+
 
 ingress:
   enabled: true
@@ -27,11 +29,11 @@ ingress:
     # nginx.ingress.kubernetes.io/cors-expose-headers: "x-api-version,x-response-time-ms,Access-Control-Allow-Credentials,Access-Control-Allow-Origin,kbn-xsrf,kbn-version,content-type"
     # nginx.ingress.kubernetes.io/cors-allow-origin: "http://93.173.78.215"
     # nginx.ingress.kubernetes.io/cors-allow-credentials: "true"
-    nginx.ingress.kubernetes.io/rewrite-target: /$2
+    nginx.ingress.kubernetes.io/rewrite-target: /$1
   hosts:
     - host: kube-stack.beder.co.il
       paths:
-        - path: /kibana(/|$)(.*)
+        - path: /kibana/(.*)
           pathType: Prefix
           backend:
             service:
