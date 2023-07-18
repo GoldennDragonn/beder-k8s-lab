@@ -10,7 +10,7 @@ kibanaConfig:
 ingress:
   enabled: true
   className: "nginx"
-  pathtype: ImplementationSpecific
+  pathtype: Prefix
   annotations:
           nginx.ingress.kubernetes.io/enable-cors: "true"
           nginx.ingress.kubernetes.io/cors-allow-methods: "PUT, GET, POST, OPTIONS"
