@@ -33,7 +33,7 @@ ingress:
   hosts:
   - host: kube-stack.beder.co.il
     paths:
-    - path: /kibana
+    - path: /kibana/(.*)
       pathType: ImplementationSpecific
       backend:
         service:
