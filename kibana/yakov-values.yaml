@@ -15,6 +15,8 @@ resources:
     cpu: "400m"
     memory: "2Gi"
 
+server.basePath: /kibana
+
 ingress:
   enabled: true
   className: "nginx"
