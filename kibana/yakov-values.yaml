@@ -7,6 +7,14 @@ kibanaConfig:
     elasticsearch.username: "admin"
     elasticsearch.password: "yakov123"
 
+resources:
+  requests:
+    cpu: "200m"
+    memory: "1Gi"
+  limits:
+    cpu: "400m"
+    memory: "2Gi"
+
 ingress:
   enabled: true
   className: "nginx"
@@ -22,9 +30,9 @@ ingress:
   hosts:
     - host: kube-stack.beder.co.il
       paths:
-        # - backend:
-        #       service:
-        #         name: kibana-kibana
-        #         port:
-        #           number: 5601
+        - backend:
+              service:
+                name: kibana-kibana
+                port:
+                  number: 5601
         - path: /kibana
