@@ -121,8 +121,8 @@ storage:
       # - name: ES_INDEX_PREFIX
       #   value: test
     ## ES related cmd line opts to be configured on the concerned components
-    cmdlineParams: 
-      es.server-urls: http://elasticsearch-master.observability:9200
+    cmdlineParams: {}
+      # es.server-urls: http://elasticsearch-master.observability:9200
       # es.username: elastic
       # es.index-prefix: test
     tls:
