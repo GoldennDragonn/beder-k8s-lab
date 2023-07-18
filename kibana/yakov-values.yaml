@@ -27,7 +27,7 @@ ingress:
     nginx.ingress.kubernetes.io/cors-expose-headers: "x-api-version,x-response-time-ms,Access-Control-Allow-Credentials,Access-Control-Allow-Origin,kbn-xsrf,kbn-version,content-type"
     nginx.ingress.kubernetes.io/cors-allow-origin: "http://93.173.78.215"
     nginx.ingress.kubernetes.io/cors-allow-credentials: "true"
-    nginx.ingress.kubernetes.io/rewrite-target: /$1
+    nginx.ingress.kubernetes.io/rewrite-target: /$2
   # kubernetes.io/ingress.class: nginx
   # kubernetes.io/tls-acme: "true"
   hosts:
