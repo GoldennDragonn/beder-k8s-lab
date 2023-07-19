@@ -101,7 +101,7 @@ mongoExpress:
     enable: true
 
 mongodbSharded:
-  enabled: false
+  enabled: true
   syncWave: "1"
   syncPolicy:
     enable: false
