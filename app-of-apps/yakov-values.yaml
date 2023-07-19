@@ -65,7 +65,7 @@ kubePrometheusStack:
 
       
 kafdrop:
-  enabled: false
+  enabled: true
   syncWave: "4"
   syncPolicy:
     enable: true
@@ -77,7 +77,7 @@ kafdrop:
     
 
 kafka:
-  enabled: false
+  enabled: true
   syncWave: "3"
   syncPolicy:
     enable: true
