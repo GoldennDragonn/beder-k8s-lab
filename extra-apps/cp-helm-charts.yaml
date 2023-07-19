@@ -1,0 +1,22 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: cp-helm-charts
+  namespace: default
+
+spec:
+  project: default
+  source:
+    repoURL: 'https://gitlab.com/yakovbwork/beder-k8s.git'
+    path: cp-helm-charts
+    targetRevision: main
+    helm:
+      valueFiles:
+        - yakov-values.yaml
+  destination:
+    server: 'https://kubernetes.default.svc'
+    namespace: default
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
