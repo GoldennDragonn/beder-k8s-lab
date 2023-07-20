@@ -273,7 +273,7 @@ service:
   ## @param service.type Service type
   ## ref: https://kubernetes.io/docs/concepts/services-networking/service/#publishing-services-service-types
   ##
-  type: ClusterIP
+  type: NodePort
   ## @param service.externalTrafficPolicy External traffic policy
   ## Enable client source IP preservation
   ## ref: https://kubernetes.io/docs/concepts/services-networking/service/#publishing-services-service-types
