@@ -111,7 +111,7 @@ auth:
   rootPassword: "Admin123"
   ## @param auth.replicaSetKey Key used for authentication in the replicaset (only when `architecture=replicaset`)
   ##
-  replicaSetKey: ""
+  replicaSetKey: "Admin123"
   ## @param auth.existingSecret Existing secret with MongoDB(&reg;) credentials (keys: `mongodb-password`, `mongodb-root-password`, `mongodb-replica-set-key`)
   ## NOTE: When it's set the previous parameters are ignored.
   ##
@@ -124,7 +124,7 @@ auth:
 ## @param shards Number of shards to be created
 ## ref: https://docs.mongodb.com/manual/core/sharded-cluster-shards/
 ##
-shards: 3
+shards: 2
 ## Properties for all of the pods in the cluster (shards, config servers and mongos)
 ##
 common:
@@ -874,7 +874,7 @@ mongos:
   ##
   podSecurityContext:
     enabled: true
-    fsGroup: 1001
+    fsGroup: 1001040000
   ## Configure Container Security Context
   ## ref: https://kubernetes.io/docs/tasks/configure-pod-container/security-context/#set-the-security-context-for-a-container
   ## @param mongos.containerSecurityContext.enabled Enabled containers' Security Context
@@ -884,7 +884,7 @@ mongos:
   ##
   containerSecurityContext:
     enabled: true
-    runAsUser: 1001
+    runAsUser: 1001040000
     runAsNonRoot: true
     readOnlyRootFilesystem: false
   ## @param mongos.command Override default container command (useful when using custom images)
@@ -971,7 +971,7 @@ shardsvr:
   dataNode:
     ## @param shardsvr.dataNode.replicaCount Number of nodes in each shard replica set (the first node will be primary)
     ##
-    replicaCount: 3
+    replicaCount: 2
     ## @param shardsvr.dataNode.resources Configure pod resources
     ## ref: https://kubernetes.io/docs/user-guide/compute-resources/
     ##
@@ -1150,7 +1150,7 @@ shardsvr:
     ##
     podSecurityContext:
       enabled: true
-      fsGroup: 1001
+      fsGroup: 1001040000
     ## Configure Container Security Context
     ## ref: https://kubernetes.io/docs/tasks/configure-pod-container/security-context/#set-the-security-context-for-a-container
     ## @param shardsvr.dataNode.containerSecurityContext.enabled Enabled containers' Security Context
@@ -1160,7 +1160,7 @@ shardsvr:
     ##
     containerSecurityContext:
       enabled: true
-      runAsUser: 1001
+      runAsUser: 1001040000
       runAsNonRoot: true
       readOnlyRootFilesystem: false
     ## @param shardsvr.dataNode.command Override default container command (useful when using custom images)
@@ -1445,7 +1445,7 @@ shardsvr:
     ##
     podSecurityContext:
       enabled: true
-      fsGroup: 1001
+      fsGroup: 1001040000
     ## Configure Container Security Context
     ## ref: https://kubernetes.io/docs/tasks/configure-pod-container/security-context/#set-the-security-context-for-a-container
     ## @param shardsvr.arbiter.containerSecurityContext.enabled Enabled containers' Security Context
@@ -1455,7 +1455,7 @@ shardsvr:
     ##
     containerSecurityContext:
       enabled: true
-      runAsUser: 1001
+      runAsUser: 1001040000
       runAsNonRoot: true
       readOnlyRootFilesystem: false
     ## @param shardsvr.arbiter.command Override default container command (useful when using custom images)
@@ -1536,7 +1536,7 @@ shardsvr:
 metrics:
   ## @param metrics.enabled Start a side-car prometheus exporter
   ##
-  enabled: false
+  enabled: true
   ## @param metrics.image.registry MongoDB&reg; exporter image registry
   ## @param metrics.image.repository MongoDB&reg; exporter image name
   ## @param metrics.image.tag MongoDB&reg; exporter image tag
@@ -1578,7 +1578,7 @@ metrics:
   ##
   containerSecurityContext:
     enabled: true
-    runAsUser: 1001
+    runAsUser: 1001040000
     runAsNonRoot: true
     readOnlyRootFilesystem: false
   ## Metrics exporter liveness probe
@@ -1658,7 +1658,7 @@ metrics:
     enabled: false
     ## @param metrics.podMonitor.namespace Namespace where podmonitor resource should be created
     ##
-    namespace: monitoring
+    namespace: mongo
     ## @param metrics.podMonitor.interval Specify the interval at which metrics should be scraped
     ##
     interval: 30s
