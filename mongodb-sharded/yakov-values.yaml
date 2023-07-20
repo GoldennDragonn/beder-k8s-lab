@@ -156,7 +156,7 @@ common:
   mongodbMaxWaitTimeout: 120
   ## @param common.initScriptsCM Configmap with init scripts to execute
   ##
-  initScriptsCM: "mongos-init-bederdb"
+  initScriptsCM: ""
   ## @param common.initScriptsSecret Secret with init scripts to execute (for sensitive data)
   ##
   initScriptsSecret: ""
@@ -273,7 +273,7 @@ service:
   ## @param service.type Service type
   ## ref: https://kubernetes.io/docs/concepts/services-networking/service/#publishing-services-service-types
   ##
-  type: NodePort
+  type: ClusterIP
   ## @param service.externalTrafficPolicy External traffic policy
   ## Enable client source IP preservation
   ## ref: https://kubernetes.io/docs/concepts/services-networking/service/#publishing-services-service-types
@@ -291,7 +291,7 @@ service:
   ## ref: https://kubernetes.io/docs/concepts/services-networking/service/#type-nodeport
   ##
   nodePorts:
-    mongodb: "30017"
+    mongodb: ""
   ## @param service.externalIPs External IP list to use with ClusterIP service type
   ## ref: https://kubernetes.io/docs/concepts/services-networking/service/#external-ips
   ##
@@ -347,7 +347,8 @@ configsvr:
   ## mongodbExtraFlags:
   ##  - "--wiredTigerCacheSizeGB=2"
   ##
-  mongodbExtraFlags: "--bind_ip_all"
+  mongodbExtraFlags: 
+    - "--bind_ip_all"
   ## @param configsvr.topologySpreadConstraints Topology Spread Constraints for pod assignment spread across your cluster among failure-domains. Evaluated as a template
   ## Ref: https://kubernetes.io/docs/concepts/workloads/pods/pod-topology-spread-constraints/#spread-constraints-for-pods
   ##
