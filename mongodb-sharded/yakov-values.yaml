@@ -604,7 +604,7 @@ configsvr:
   ## @param configsvr.readinessProbe.successThreshold Success threshold for readinessProbe
   ##
   readinessProbe:
-    enabled: false
+    enabled: true
     initialDelaySeconds: 10
     periodSeconds: 30
     timeoutSeconds: 20
@@ -633,13 +633,13 @@ configsvr:
   customLivenessProbe: {}
   ## @param configsvr.customReadinessProbe Custom readinessProbe that overrides the default one
   ##
-  customReadinessProbe: 
-    exec: 
-      command:
-      - /bin/sh
-      - -c
-      - /opt/bitnami/mongodb/bin/mongo --disableImplicitSessions -eval "db.adminCommand('ping')"
-    initialDelaySeconds: 5
+  customReadinessProbe: {}
+    # exec: 
+    #   command:
+    #   - /bin/sh
+    #   - -c
+    #   - /opt/bitnami/mongodb/bin/mongo --disableImplicitSessions -eval "db.adminCommand('ping')"
+    # initialDelaySeconds: 5
   ## @param configsvr.customStartupProbe Custom startupProbe that overrides the default one
   ##
   customStartupProbe: {}
