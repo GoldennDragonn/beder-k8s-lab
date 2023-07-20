@@ -1,0 +1,36 @@
+{{- if .Values.cpHelmCharts.enabled }}
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: cp-helm-charts
+  namespace: default
+  finalizers:
+  - resources-finalizer.argocd.argoproj.io
+  annotations:
+    argocd.argoproj.io/sync-wave: "{{ .Values.cpHelmCharts.syncWave }}"
+  
+spec:
+  project: default
+  source:
+    repoURL: 'git@gitlab.com:yakovbwork/beder-k8s.git'
+    path: cp-helm-charts
+    targetRevision: main
+    helm:
+      valueFiles:
+        - yakov-values.yaml
+  destination:
+    server: 'https://kubernetes.default.svc'
+    namespace: kafka
+  {{- if  .Values.cpHelmCharts.syncPolicy.enable }}
+  syncPolicy:
+    automated:
+      prune: {{ .Values.cpHelmCharts.syncPolicy.automated.prune }}
+      selfHeal: {{ .Values.cpHelmCharts.syncPolicy.automated.selfHeal }}
+  {{- end }}
+    {{- if .Values.cpHelmCharts.syncOptions.enable }}
+    syncOptions:
+      {{- range .Values.cpHelmCharts.syncOptions.options }}
+      - {{ . }}
+      {{- end }}
+    {{- end }}
+{{- end }}

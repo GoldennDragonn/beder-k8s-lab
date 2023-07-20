@@ -89,6 +89,19 @@ kafka:
     options:
       - CreateNamespace=true
 
+cpHelmCharts:
+  enabled: true
+  syncWave: "6"
+  syncPolicy:
+    enable: true
+    automated:
+      prune: true
+      selfHeal: true
+  syncOptions:
+    enable: true
+    options:
+      - CreateNamespace=true
+
 mongoExpress:
   enabled: false
   syncWave: "2"
