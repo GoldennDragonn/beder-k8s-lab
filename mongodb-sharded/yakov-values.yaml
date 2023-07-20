@@ -333,7 +333,7 @@ service:
 configsvr:
   ## @param configsvr.replicaCount Number of nodes in the replica set (the first node will be primary)
   ##
-  replicaCount: 3
+  replicaCount: 2
   ## @param configsvr.resources Configure pod resources
   ## ref: https://kubernetes.io/docs/user-guide/compute-resources/
   ##
@@ -347,8 +347,7 @@ configsvr:
   ## mongodbExtraFlags:
   ##  - "--wiredTigerCacheSizeGB=2"
   ##
-  mongodbExtraFlags: 
-    - "--bind_ip_all"
+  mongodbExtraFlags: []
   ## @param configsvr.topologySpreadConstraints Topology Spread Constraints for pod assignment spread across your cluster among failure-domains. Evaluated as a template
   ## Ref: https://kubernetes.io/docs/concepts/workloads/pods/pod-topology-spread-constraints/#spread-constraints-for-pods
   ##
