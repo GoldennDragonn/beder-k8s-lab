@@ -111,7 +111,7 @@ auth:
   rootPassword: "Admin123"
   ## @param auth.replicaSetKey Key used for authentication in the replicaset (only when `architecture=replicaset`)
   ##
-  replicaSetKey: ""
+  replicaSetKey: "Admin123"
   ## @param auth.existingSecret Existing secret with MongoDB(&reg;) credentials (keys: `mongodb-password`, `mongodb-root-password`, `mongodb-replica-set-key`)
   ## NOTE: When it's set the previous parameters are ignored.
   ##
@@ -156,7 +156,7 @@ common:
   mongodbMaxWaitTimeout: 120
   ## @param common.initScriptsCM Configmap with init scripts to execute
   ##
-  initScriptsCM: ""
+  initScriptsCM: "mongos-init-bederdb"
   ## @param common.initScriptsSecret Secret with init scripts to execute (for sensitive data)
   ##
   initScriptsSecret: ""
