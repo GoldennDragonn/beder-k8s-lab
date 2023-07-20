@@ -291,7 +291,7 @@ service:
   ## ref: https://kubernetes.io/docs/concepts/services-networking/service/#type-nodeport
   ##
   nodePorts:
-    mongodb: ""
+    mongodb: "30017"
   ## @param service.externalIPs External IP list to use with ClusterIP service type
   ## ref: https://kubernetes.io/docs/concepts/services-networking/service/#external-ips
   ##
@@ -550,7 +550,7 @@ configsvr:
   ##
   podSecurityContext:
     enabled: true
-    fsGroup: 1001040000
+    fsGroup: 1001
   ## Configure Container Security Context
   ## ref: https://kubernetes.io/docs/tasks/configure-pod-container/security-context/#set-the-security-context-for-a-container
   ## @param configsvr.containerSecurityContext.enabled Enabled containers' Security Context
@@ -560,7 +560,7 @@ configsvr:
   ##
   containerSecurityContext:
     enabled: true
-    runAsUser: 1001040000
+    runAsUser: 1001
     runAsNonRoot: true
     readOnlyRootFilesystem: false
   ## @param configsvr.command Override default container command (useful when using custom images)
@@ -880,7 +880,7 @@ mongos:
   ##
   podSecurityContext:
     enabled: true
-    fsGroup: 1001040000
+    fsGroup: 1001
   ## Configure Container Security Context
   ## ref: https://kubernetes.io/docs/tasks/configure-pod-container/security-context/#set-the-security-context-for-a-container
   ## @param mongos.containerSecurityContext.enabled Enabled containers' Security Context
@@ -890,7 +890,7 @@ mongos:
   ##
   containerSecurityContext:
     enabled: true
-    runAsUser: 1001040000
+    runAsUser: 1001
     runAsNonRoot: true
     readOnlyRootFilesystem: false
   ## @param mongos.command Override default container command (useful when using custom images)
@@ -1156,7 +1156,7 @@ shardsvr:
     ##
     podSecurityContext:
       enabled: true
-      fsGroup: 1001040000
+      fsGroup: 1001
     ## Configure Container Security Context
     ## ref: https://kubernetes.io/docs/tasks/configure-pod-container/security-context/#set-the-security-context-for-a-container
     ## @param shardsvr.dataNode.containerSecurityContext.enabled Enabled containers' Security Context
@@ -1166,7 +1166,7 @@ shardsvr:
     ##
     containerSecurityContext:
       enabled: true
-      runAsUser: 1001040000
+      runAsUser: 1001
       runAsNonRoot: true
       readOnlyRootFilesystem: false
     ## @param shardsvr.dataNode.command Override default container command (useful when using custom images)
@@ -1451,7 +1451,7 @@ shardsvr:
     ##
     podSecurityContext:
       enabled: true
-      fsGroup: 1001040000
+      fsGroup: 1001
     ## Configure Container Security Context
     ## ref: https://kubernetes.io/docs/tasks/configure-pod-container/security-context/#set-the-security-context-for-a-container
     ## @param shardsvr.arbiter.containerSecurityContext.enabled Enabled containers' Security Context
@@ -1461,7 +1461,7 @@ shardsvr:
     ##
     containerSecurityContext:
       enabled: true
-      runAsUser: 1001040000
+      runAsUser: 1001
       runAsNonRoot: true
       readOnlyRootFilesystem: false
     ## @param shardsvr.arbiter.command Override default container command (useful when using custom images)
@@ -1584,7 +1584,7 @@ metrics:
   ##
   containerSecurityContext:
     enabled: true
-    runAsUser: 1001040000
+    runAsUser: 1001
     runAsNonRoot: true
     readOnlyRootFilesystem: false
   ## Metrics exporter liveness probe
