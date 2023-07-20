@@ -156,7 +156,7 @@ common:
   mongodbMaxWaitTimeout: 120
   ## @param common.initScriptsCM Configmap with init scripts to execute
   ##
-  initScriptsCM: ""
+  initScriptsCM: "mongos-init-bederdb"
   ## @param common.initScriptsSecret Secret with init scripts to execute (for sensitive data)
   ##
   initScriptsSecret: ""
@@ -550,7 +550,7 @@ configsvr:
   ##
   podSecurityContext:
     enabled: true
-    fsGroup: 1001
+    fsGroup: 1001040000
   ## Configure Container Security Context
   ## ref: https://kubernetes.io/docs/tasks/configure-pod-container/security-context/#set-the-security-context-for-a-container
   ## @param configsvr.containerSecurityContext.enabled Enabled containers' Security Context
@@ -560,7 +560,7 @@ configsvr:
   ##
   containerSecurityContext:
     enabled: true
-    runAsUser: 1001
+    runAsUser: 1001040000
     runAsNonRoot: true
     readOnlyRootFilesystem: false
   ## @param configsvr.command Override default container command (useful when using custom images)
