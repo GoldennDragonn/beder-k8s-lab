@@ -4,13 +4,13 @@ metadata:
     name: mongos-init-bederdb
 
 data:
-    initdb.js: |
-        use bederdb;
-        db.dummy.insertOne({});
-        db.createUser({
-            user: "bederuser",
-            pwd: "bederpassword"
-            roles:[
-                {role: "readWrite", db: "bederdb"}
-            ]
-        })
+  initdb.js: |
+    use bederdb;
+    db.dummy.insertOne({});
+    db.createUser({
+        user: "bederuser",
+        pwd: "bederpassword"
+        roles:[
+            {role: "readWrite", db: "bederdb"}
+        ]
+    })

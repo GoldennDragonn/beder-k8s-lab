@@ -333,7 +333,7 @@ service:
 configsvr:
   ## @param configsvr.replicaCount Number of nodes in the replica set (the first node will be primary)
   ##
-  replicaCount: 2
+  replicaCount: 3
   ## @param configsvr.resources Configure pod resources
   ## ref: https://kubernetes.io/docs/user-guide/compute-resources/
   ##
@@ -347,7 +347,7 @@ configsvr:
   ## mongodbExtraFlags:
   ##  - "--wiredTigerCacheSizeGB=2"
   ##
-  mongodbExtraFlags: []
+  mongodbExtraFlags: "--bind_ip_all"
   ## @param configsvr.topologySpreadConstraints Topology Spread Constraints for pod assignment spread across your cluster among failure-domains. Evaluated as a template
   ## Ref: https://kubernetes.io/docs/concepts/workloads/pods/pod-topology-spread-constraints/#spread-constraints-for-pods
   ##
@@ -604,7 +604,7 @@ configsvr:
   ## @param configsvr.readinessProbe.successThreshold Success threshold for readinessProbe
   ##
   readinessProbe:
-    enabled: true
+    enabled: false
     initialDelaySeconds: 10
     periodSeconds: 30
     timeoutSeconds: 20
@@ -633,7 +633,13 @@ configsvr:
   customLivenessProbe: {}
   ## @param configsvr.customReadinessProbe Custom readinessProbe that overrides the default one
   ##
-  customReadinessProbe: {}
+  customReadinessProbe: 
+    exec: 
+      command:
+      - /bin/sh
+      - -c
+      - /opt/bitnami/mongodb/bin/mongo --disableImplicitSessions -eval "db.adminCommand('ping')"
+    initialDelaySeconds: 5
   ## @param configsvr.customStartupProbe Custom startupProbe that overrides the default one
   ##
   customStartupProbe: {}
@@ -1494,7 +1500,7 @@ shardsvr:
     ## @param shardsvr.arbiter.readinessProbe.periodSeconds Period seconds for readinessProbe
     ## @param shardsvr.arbiter.readinessProbe.timeoutSeconds Timeout seconds for readinessProbe
     ## @param shardsvr.arbiter.readinessProbe.failureThreshold Failure threshold for readinessProbe
-    ## @param shardsvr.arbiter.readinessProbe.successThreshold Success threshold for readinessProbe
+    ## @param shardsvr.arbiter.reatruedinessProbe.successThreshold Success threshold for readinessProbe
     ##
     readinessProbe:
       enabled: true
@@ -1536,7 +1542,7 @@ shardsvr:
 metrics:
   ## @param metrics.enabled Start a side-car prometheus exporter
   ##
-  enabled: true
+  enabled: false
   ## @param metrics.image.registry MongoDB&reg; exporter image registry
   ## @param metrics.image.repository MongoDB&reg; exporter image name
   ## @param metrics.image.tag MongoDB&reg; exporter image tag
