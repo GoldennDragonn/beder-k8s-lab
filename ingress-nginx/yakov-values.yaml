@@ -7,7 +7,7 @@ controller:
   #        return 308 https://$host$request_uri;
   #     }
 
-  kind: DaemonSet
+  kind: Deployment
 
   containerPort:
     http: 80
