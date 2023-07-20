@@ -9,8 +9,8 @@ data:
     db.dummy.insertOne({});
     db.createUser({
         user: "bederuser",
-        pwd: "bederpassword"
-        roles:[
-            {role: "readWrite", db: "bederdb"}
+        pwd: "bederpassword",
+        roles: [
+            { role: "readWrite", db: "bederdb" }
         ]
     })
